@@ -21,7 +21,11 @@ const myPersistReducer = combineReducers({
         rdc.login
     ),
     global: rdc.global, // 全局
-
+    shoplist: persistReducer(
+        rootPersistConfig,
+        rdc.shoplist
+    ),
+    
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
