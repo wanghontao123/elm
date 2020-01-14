@@ -27,7 +27,6 @@ class extends Component {
         left: 'ele.me',
         mid: '',
         right: '登录 | 注册',
-        list: []
     }
     //回退
     back = () => {
@@ -41,16 +40,9 @@ class extends Component {
     click = item => {
         this.props.history.push(`/home_search/${item}`)
     }
-    //排序
-    sort = cityGroup => {
-        const ordered = {}
-        Object.keys(cityGroup).sort().forEach(function (key) {
-            ordered[key] = cityGroup[key]
-        })
-    }
 
     render() {
-        const { left, right, mid, list } = this.state
+        const { left, right, mid } = this.state
         const { cityList, cityHot, cityGroup } = this.props
         return (
             <div className="city">
