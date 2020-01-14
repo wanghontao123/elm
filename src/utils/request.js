@@ -63,7 +63,7 @@ export function requestPost(url, action = {}) {
 export function requestGet(url) {
     return new Promise((resolve, reject) => {
         axios({
-            url
+            url,
         })
             .then(res => resolve(res))
             .catch(err => reject(err))

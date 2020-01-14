@@ -21,7 +21,9 @@ const myPersistReducer = combineReducers({
         rdc.login
     ),
     global: rdc.global, // 全局
-
+    cityGuess: rdc.cityGuess,
+    cityHot: rdc.cityHot,
+    cityGroup:rdc.cityGroup,
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
