@@ -24,6 +24,11 @@ const myPersistReducer = combineReducers({
     cityGuess: rdc.cityGuess,
     cityHot: rdc.cityHot,
     cityGroup:rdc.cityGroup,
+    takeaway: persistReducer(
+        rootPersistConfig,
+        rdc.takeaway
+    ),
+
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

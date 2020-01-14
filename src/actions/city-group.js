@@ -4,6 +4,6 @@ import { CITY_GROUP } from '@/constants/actionTypes'
 export function cityGroups (options) {
     return{
         type: CITY_GROUP,
-        payload: requestGet(`/api/v1/cities?${options}` )
+        payload: requestGet(`/v1/cities?${options}` )
     }
 }
