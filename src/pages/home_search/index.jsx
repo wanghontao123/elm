@@ -2,8 +2,15 @@ import React, { Component } from 'react';
 import './style.less'
 import Header from '@@/Header'
 import { Input, Button } from 'antd'
+import { connect } from 'react-redux'
+import { searchTitle } from '@/actions/search'
+export default  @connect(state => {
+    return { }
+}, {
+    searchTitle
+})
 
-export default  class index extends Component {
+class index extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -48,6 +55,6 @@ export default  class index extends Component {
                     </div>
                 </section>
             </div>
-        );
+        )
     }
 }
