@@ -4,18 +4,19 @@ import { CAROUSEL_LIST, SHOP_LIST } from '@/constants/actionTypes'
 import { connect } from 'react-redux'
 import { hump } from '@/utils/string'
 import { Good_view } from '@@'
+import _ from 'lodash'
 import './style.less'
 
-@connect(state => {
+export default @connect(state => {
     return {
-        carList: state.shoplist.carList,
-        shpList: state.shoplist.shpList,
+        carList: state.takeaway.carList,
+        shpList: state.takeaway.shpList,
     }
 }, {
     carouselList: shoplist[hump(CAROUSEL_LIST)],
     shopsList: shoplist[hump(SHOP_LIST)]
 })
-class takeaway extends PureComponent {
+class extends PureComponent {
     componentDidMount() {
         const { carouselList, shopsList } = this.props
         carouselList()
@@ -25,9 +26,9 @@ class takeaway extends PureComponent {
         })
     }
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         const { props: { shpList } } = this
-        console.log(shpList)
+        // console.log(shpList)
         return (
             <div className="home_takeaway">
                 <div className="takeaway-header">
@@ -48,13 +49,14 @@ class takeaway extends PureComponent {
                 <div className="takeaway-section">
                     <div className="takeaway-banner">
 
+                        
                     </div>
                     <div className="takeaway-shoplist">
                         <div className="takeaway-title">
                             附近商家
                         </div>
                         {
-                            shpList.map((res, key) => (
+                            shpList.length > 0 && shpList.map((res, key) => (
                                 <Good_view { ...res } 
                                     key={key}
                                 />
@@ -66,5 +68,3 @@ class takeaway extends PureComponent {
         )
     }
 }
-
-export default takeaway

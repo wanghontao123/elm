@@ -6,5 +6,5 @@ export {
     Loading,
     AsyncLoading,
     Nav,
-    Good_view,
+    Good_view
 }
