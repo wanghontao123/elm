@@ -21,6 +21,10 @@ const myPersistReducer = combineReducers({
         rdc.login
     ),
     global: rdc.global, // 全局
+    takeaway: persistReducer(
+        rootPersistConfig,
+        rdc.takeaway
+    ),
 
 })
 
