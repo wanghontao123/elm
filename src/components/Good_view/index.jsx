@@ -4,9 +4,10 @@ import './style.less'
 
 export default class extends PureComponent {
     render () {
-        console.log(this.props)
+        // console.log(this.props)
         const { 
             props: { 
+                id,
                 image_path,
                 name,
                 supports,
@@ -18,13 +19,14 @@ export default class extends PureComponent {
                 float_minimum_order_amount,
                 float_delivery_fee,
                 distance,
-                order_lead_time
+                order_lead_time,
+                toInfo = () => {}
             }
         } = this
         let star = Math.ceil(rating)
         star > rating ? star -= 0.5 : star += 0.5
         return (
-            <div className="good-view">
+            <div className="good-view" onClick={() => toInfo(id)}>
                 <div className="good-pic">
                     <img src={`//elm.cangdu.org/img/${image_path}`} alt=""/>
                 </div>
