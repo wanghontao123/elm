@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import Header from '@@/Header'
 import { connect } from 'react-redux'
+import qs from 'qs'
 import { cityGuess } from '@/actions/city-guess'
 import { cityHots } from '@/actions/city-hot'
 import { cityGroups } from '@/actions/city-group'
+import Header from '@@/Header'
 import City from '@@/City'
-import qs from 'qs'
 import './style.less'
 
 export default @connect(state => ({

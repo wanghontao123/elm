@@ -8,10 +8,10 @@ export default class extends React.PureComponent {
         super(props);
         this.state = {
             data: [
-                { id: 0, icon: 'google', title: '外卖', path: '/' },
-                { id: 1, icon: 'coffee', title: '搜索', path: '/home_search' },
-                { id: 2, icon: 'ci', title: '订单', path: '/home_order' },
-                { id: 3, icon: 'user', title: '我的', path: '/home_my' },
+                { id: 0, icon: 'google',title: '外卖',path: '/' },
+                { id: 1, icon: 'coffee',title: '搜索',path: '/home_search/:id' },
+                { id: 2, icon: 'ci',title: '订单',path: '/home_order' },
+                { id: 3, icon: 'user',title: '我的',path: '/home_my' },
             ]
         }
         if (!localStorage.getItem('id')) {

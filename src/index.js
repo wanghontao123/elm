@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { AsyncLoading } from '@@'
 
 import 'antd/dist/antd.less';
+// import 'antd-mobile/dist/antd-mobile.less'
 import '@/styles/iconfont.css'
 import '@/styles/rem.js';
 import '@/styles/reset.css';

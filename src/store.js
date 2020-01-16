@@ -20,15 +20,12 @@ const myPersistReducer = combineReducers({
         rootPersistConfig,
         rdc.login
     ),
-    global: rdc.global, // 全局
+    global: rdc.global, // 全局    
     cityGuess: rdc.cityGuess,
     cityHot: rdc.cityHot,
     cityGroup:rdc.cityGroup,
-    takeaway: persistReducer(
-        rootPersistConfig,
-        rdc.takeaway
-    ),
-
+    takeaway: rdc.takeaway,
+    seachCity: rdc.seachCity
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
