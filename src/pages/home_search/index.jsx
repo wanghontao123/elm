@@ -10,7 +10,7 @@ export default  @connect(state => {
     searchTitle
 })
 
-class index extends Component {
+class extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -19,13 +19,13 @@ class index extends Component {
         }
     }
     
-    getVal = e => {
-        this.setState({ val: e.target.value })
+    getVal = evt => {
+        this.setState({ txt: evt.target.value })
     }
 
     btn = () => {
-        const { val, searchHistory } = this.state
-        searchHistory.push(val)
+        const { txt, searchHistory } = this.state
+        searchHistory.push(txt)
         localStorage.setItem('searchHistory', JSON.stringify(searchHistory))
 
     }
@@ -42,12 +42,16 @@ class index extends Component {
                         <Input  
                             placeholder="请输入商家或美食名称"
                             onChange={this.getVal}
+                            value={this.state.txt}
                         /> 
                         <Button 
                             type="primary" 
                             onClick={this.btn}>
                                 提交
                         </Button>
+                    </div>
+                    <div className="section-info">
+                        
                     </div>
                     <div className="hide-title">
                         <p>搜索历史</p>
