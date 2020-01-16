@@ -7,3 +7,4 @@ export const CITY_HOT = 'CITY_HOT' //热门城市
 export const CITY_GROUP = 'CITY_GROUP' //全部城市
 export const SHOP_LIST = 'SHOP_LIST' // 商铺列表
 export const SHOP_INFO = 'SHOP_INFO' // 商铺详情
+export const SHOP_FOOD = 'SHOP_FOOD' // 商铺详情

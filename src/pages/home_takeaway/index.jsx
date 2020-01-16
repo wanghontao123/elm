@@ -97,11 +97,7 @@ class extends PureComponent {
                     <div className="takeaway-search takeaway-header-box">
                         搜索
                     </div>
-                    <div className="takeaway-address takeaway-header-box" onClick={() => {
-                        const { shopsList } = this.props
-                        shopsList({ latitude: "31.22967", longitude: "121.4762" })
-
-                    }}>
+                    <div className="takeaway-address takeaway-header-box">
                         地址信息
                     </div>
                     <div className="takeaway-login takeaway-header-box">
