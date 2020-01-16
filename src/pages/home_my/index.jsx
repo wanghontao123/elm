@@ -4,8 +4,9 @@ import './style.less'
 class index extends Component {
     render() {
         return (
-            <div className="my">
-                home_my
+            <div className="home_my">
+                <header></header>
+                <section></section>
             </div>
         );
     }
