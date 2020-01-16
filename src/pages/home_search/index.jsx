@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { Input, Button } from 'antd'
 import _ from 'loadsh'
 import { connect } from 'react-redux'
 import Header from '@@/Header'
 import { seachCity } from '@/actions/seachCity'
+import Search from '@@/Search'
+import SearchHistory from '@@/SearchHistory'
 import './style.less'
 
 export default  @connect(state => ({
@@ -20,10 +21,11 @@ class extends Component {
         }
     }
 
+    //搜索的value值
     change = evt => {
         this.setState({ val: evt.target.value })
     }
-
+    //点击搜索
     btn = () => {
         const { val } = this.state
         const obj = {
@@ -32,9 +34,8 @@ class extends Component {
             type: 'search'
         }
         this.props.seachCity(obj)
-
     }
-
+    //点击搜索到的跳转，存localStorage
     click = item => {
         const { searchHistory } = this.state
         searchHistory.push(item)
@@ -42,12 +43,12 @@ class extends Component {
         const geohash = item.geohash
         this.props.history.push(`/?geohash=${geohash}`)
     }
-
+    //回到上一级
     back = () => {
         this.props.history.go('-1')
     }
-    
-    clear = () =>{
+    //清除历史纪录
+    clear = () => {
         localStorage.removeItem('searchHistory')
     }
 
@@ -62,26 +63,20 @@ class extends Component {
                     back={this.back}
                 />
                 <section>
-                    <div className="section-input">
-                        <Input
-                            placeholder="请输入商家或美食名称"
-                            onChange={this.change}
-                        />
-                        <Button
-                            type="primary"
-                            onClick={this.btn}>
-                            提交
-                        </Button>
-                    </div>
+                    <Search
+                        change={this.change}
+                        btn={this.btn}
+                    />
                     {
                         seachData.length > 0 ?
                             <div className='search'>
                                 {
                                     seachData.length > 0 && seachData.map((v, k) => (
-                                        <dl key={k} onClick={() => this.click(v)}>
-                                            <dt>{v.name}</dt>
-                                            <dd>{v.address}</dd>
-                                        </dl>
+                                        <SearchHistory
+                                            v={v}
+                                            key={k}
+                                            click={this.click}
+                                        />
                                     ))
                                 }
                             </div> : ''
@@ -93,10 +88,11 @@ class extends Component {
                                 <div className='text'>
                                     {
                                         sera.length > 0 && sera.map((v, k) => (
-                                            <dl key={k} onClick={() => this.click(v)}>
-                                                <dt>{v.name}</dt>
-                                                <dd>{v.address}</dd>
-                                            </dl>
+                                            <SearchHistory
+                                                v={v}
+                                                key={k}
+                                                click={this.click}
+                                            />
                                         ))
                                     }
                                 </div>
