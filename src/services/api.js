@@ -5,4 +5,5 @@ export default {
     signout: '/v2/signout', //退出
     captchas: '/v1/captchas', //验证码
     
+    search: 'v1/pois'
 }

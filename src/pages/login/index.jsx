@@ -1,14 +1,13 @@
 import React from 'react'
-import { Header_Top } from '@@'
-import { Switch, message } from 'antd';
 import { connect } from 'react-redux'
+import { Switch, message } from 'antd';
+import { LOGIN_POST, CAPTCHAS_POST, } from '@/constants/actionTypes'
 import { loginFn } from '@/actions/login'
 import { hump } from '@/utils/string'
-import { LOGIN_POST, CAPTCHAS_POST, } from "@/constants/actionTypes";
+import { Header_Top } from '@@'
 import './styles.less'
 
 export default @connect(state => {
-    console.log(state, 'state');
     return {
         captchasData: state.login.captchasData
     }

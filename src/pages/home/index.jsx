@@ -1,9 +1,8 @@
-import React from 'react';
-import './styles.less'
-import PrivateRoute from '@@/PrivateRoute'
+import React from 'react'
 import { Nav } from '@@'
+import PrivateRoute from '@@/PrivateRoute'
+import './styles.less'
 
-{/*  */}
 export default class extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -24,12 +23,10 @@ export default class extends React.PureComponent {
         return (
             <div className='pages_home'>
                 <section>
-                    <PrivateRoute route={this.props.route.router}/>
+                    <PrivateRoute route={this.props.route.router} />
                 </section>
                 <footer>
-                    {
-                       <Nav data={this.state.data}/>
-                    }
+                    {<Nav data={this.state.data} />}
                 </footer>
             </div>
         )

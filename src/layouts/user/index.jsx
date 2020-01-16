@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import './style.less'
+import React, { Component } from 'react'
 import PrivateRoute from '@@/PrivateRoute'
+import './style.less'
 
-export default class index extends Component {
+export default class extends Component {
     render() {
         return (
             <div className="layouts_user">
