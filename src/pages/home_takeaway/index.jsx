@@ -97,7 +97,7 @@ class extends PureComponent {
                 {/* 头部 */}
                 <Header
                     left={'left'}
-                    mid={sera[0].address}
+                    mid={rule}
                     right={'登录 | 注册'}
                     back={this.back}
                 />
