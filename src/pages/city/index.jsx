@@ -38,7 +38,7 @@ class extends Component {
     }
     //点击跳转到搜索页面附带id
     click = item => {
-        this.props.history.push(`/home_search/${item}`)
+        this.props.history.push(`/info/citySearch/${item}`)
     }
 
     render() {

@@ -43,7 +43,7 @@ class extends PureComponent {
         console.log(id)
     }
     back = () => {
-        this.props.history.go('-1')
+        this.props.history.push('/home_search')
     }
 
     // swiper 导航
@@ -91,13 +91,12 @@ class extends PureComponent {
     render() {
         const { props: { shpList }, toInfo, test, SimpleSwiperWithParams } = this
         const sera = JSON.parse(localStorage.getItem('searchHistory'))
-        const rule = sera[sera.length - 1].address
-        
+        const rule = sera ? _.get(sera[sera.length - 1],'address','') : ''
         return (
             <div className="home_takeaway">
                 {/* 头部 */}
                 <Header
-                    left={'left'}
+                    left={'search'}
                     mid={rule}
                     right={'登录 | 注册'}
                     back={this.back}
