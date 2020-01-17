@@ -66,14 +66,13 @@ class extends React.PureComponent {
                     // console.log(res.payload, 'res');
                     if(res.payload.data.message) {
                         message.error(res.payload.data.message)
+                        this.captchasFn()    // 更新验证码图片
                     } else {
                         localStorage.id = res.payload.data.id
                         localStorage.token = res.payload.data._id
-                        message.success('登录成功')
-                        this.props.history.push('/')
+                        this.success()
                     }
                 })
-            this.captchasFn()    // 更新验证码图片
         } else {
             message.warning('输入不能为空')
         }
@@ -89,9 +88,12 @@ class extends React.PureComponent {
 
     success = () => {
         message
-            .loading('Action in progress..', 2.5)
-            .then(() => message.success('Loading finished', 2.5))
-            .then(() => message.info('Loading finished is finished', 2.5));
+            .loading('In Confirmation...', 1.5)
+            .then(() => {
+                message.success('登录成功', 1.5)
+                this.props.history.push('/')
+            })
+            // .then(() => message.info('Loading finished is finished', 2.5));
     };
 
     render() {
