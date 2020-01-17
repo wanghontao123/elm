@@ -91,7 +91,7 @@ class extends PureComponent {
 
     render() {
         const { props: { shpList }, toInfo, test, SimpleSwiperWithParams } = this
-        const sera = JSON.parse(localStorage.getItem('searchHistory'))
+        const sera = JSON.parse(localStorage.getItem('placehHistory'))
         const rule = sera ? _.get(sera[sera.length - 1],'address','') : ''
         return (
             <div className="home_takeaway">

@@ -17,7 +17,7 @@ class extends Component {
         super(props)
         this.state = {
             val: '',
-            searchHistory: []
+            placehHistory: []
         }
     }
 
@@ -37,9 +37,9 @@ class extends Component {
     }
     //点击搜索到的跳转，存localStorage
     click = item => {
-        const { searchHistory } = this.state
-        searchHistory.push(item)
-        localStorage.setItem('searchHistory', JSON.stringify(searchHistory))
+        const { placehHistory } = this.state
+        placehHistory.push(item)
+        localStorage.setItem('placehHistory', JSON.stringify(placehHistory))
         const geohash = item.geohash
         this.props.history.push(`/?geohash=${geohash}`)
     }
@@ -49,7 +49,7 @@ class extends Component {
     }
     //清除历史纪录
     clear = () => {
-        localStorage.removeItem('searchHistory')
+        localStorage.removeItem('placehHistory')
     }
     jump = () => {
         this.props.history.push('/info/city')
@@ -57,7 +57,7 @@ class extends Component {
 
     render() {
         const { seachData } = this.props
-        const sera = JSON.parse(localStorage.getItem('searchHistory'))
+        const sera = JSON.parse(localStorage.getItem('placehHistory'))
         return (
             <div className="search-city">
                 <Header
