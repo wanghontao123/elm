@@ -4,7 +4,7 @@ import { Switch, message } from 'antd';
 import { LOGIN_POST, CAPTCHAS_POST, } from '@/constants/actionTypes'
 import { loginFn } from '@/actions/login'
 import { hump } from '@/utils/string'
-import { Header_Top } from '@@'
+import { Header_Top, Buttons } from '@@'
 import './styles.less'
 
 export default @connect(state => {
@@ -64,7 +64,7 @@ class extends React.PureComponent {
             })
                 .then(res => {
                     // console.log(res.payload, 'res');
-                    if(res.payload.data.message) {
+                    if (res.payload.data.message) {
                         message.error(res.payload.data.message)
                         this.captchasFn()    // 更新验证码图片
                     } else {
@@ -93,7 +93,7 @@ class extends React.PureComponent {
                 message.success('登录成功', 1.5)
                 this.props.history.push('/')
             })
-            // .then(() => message.info('Loading finished is finished', 2.5));
+        // .then(() => message.info('Loading finished is finished', 2.5));
     };
 
     render() {
@@ -116,7 +116,7 @@ class extends React.PureComponent {
                         </div>
                     </div>
                     <div className='pages_login_import_list'>
-                        <input placeholder='验证码'  onChange={this.inputChange} name='captcha_code' value={captcha_code} />
+                        <input placeholder='验证码' onChange={this.inputChange} name='captcha_code' value={captcha_code} />
                         <div onClick={this.captchasFn}>
                             <span>
                                 <img src={captchasData} alt="" />
@@ -132,9 +132,11 @@ class extends React.PureComponent {
                 </div>
                 {/* 登录按钮 */}
                 <div className='pages_login_button'>
-                    <button onClick={this.onSubmit}>
-                        登录
-                    </button>
+                    <Buttons
+                        title='登录'
+                        color='#4cd964'
+                        onClick={this.onSubmit}
+                    />
                 </div>
 
                 {/* 重置密码 */}

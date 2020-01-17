@@ -5,6 +5,7 @@ import Nav from '@@/Nav'
 import Header from '@@/Header'
 import List from '@@/List'
 import Header_Top from '@@/Header_Top'
+import Buttons from '@@/Buttons'
 
 export {
     Loading,
@@ -14,4 +15,5 @@ export {
     Header,
     List,
     Header_Top,
+    Buttons,
 }

@@ -16,9 +16,12 @@ import {
     Home_takeaway,
     Detils_list,
     Detils_info,
-    CitySearch
+    CitySearch,
+    Home_Info, // 我的信息页面
+    Home_Balance, // 我的余额 页面
 
 } from './router' // 引入页面
+
 
 const route = [
     {
@@ -41,6 +44,16 @@ const route = [
             {
                 path: '/info/detils_info',
                 component: Detils_info,
+            },
+            {
+                // 我的信息页面
+                path: '/info/home_info',
+                component: Home_Info,
+            },
+            {
+                // 我的余额页面
+                path: '/info/home_balance',
+                component: Home_Balance,
             },
             {
                 path: '/info',

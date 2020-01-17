@@ -23,7 +23,7 @@ class extends React.PureComponent {
     const { history } = np
 
     // 判断是否登录了
-    if (!localStorage.getItem('user_id')) {
+    if (!localStorage.getItem('placehHistory')) {
       const pathname = history.location.pathname
       if (!pathname.includes('/info/city') && !pathname.includes('/login')) {
         history.push('/info/city')
