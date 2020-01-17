@@ -68,7 +68,7 @@ class extends React.PureComponent {
                         message.error(res.payload.data.message)
                         this.captchasFn()    // 更新验证码图片
                     } else {
-                        localStorage.id = res.payload.data.id
+                        localStorage.user_id = res.payload.data.id
                         localStorage.token = res.payload.data._id
                         this.success()
                     }

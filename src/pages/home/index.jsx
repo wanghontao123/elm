@@ -14,9 +14,6 @@ export default class extends React.PureComponent {
                 { id: 3, icon: 'user',title: '我的',path: '/home_my' },
             ]
         }
-        if (!localStorage.getItem('id')) {
-            this.props.history.push('/info')
-        }
     }
 
     render() {

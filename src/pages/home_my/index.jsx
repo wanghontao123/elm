@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
 import { Header_Top, List } from '@@'
+import { connect } from 'react-redux'
 import './style.less'
 
-class index extends Component {
+export default 
+@connect(state => {
+    console.log(state);
+    
+    return {
+
+    }
+}, {
+
+})
+class extends Component {
 
 
     // 点击list 列表跳转
@@ -66,7 +77,7 @@ class index extends Component {
                         </div>
                         <div>
                             {/* 这是判断有没有登录，登录和不登录显示的不一样 */}
-                            <p>{localStorage.token ? '111111111111' : '登录/注册'}</p>
+                            <p>{localStorage.user_id ? '111111111111' : '登录/注册'}</p>
                             <p> <span className='iconfont icon-shouji'></span> 暂无绑定手机号</p>
                         </div>
                         <div>
@@ -111,4 +122,3 @@ class index extends Component {
     }
 }
 
-export default index;

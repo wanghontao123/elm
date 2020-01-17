@@ -23,11 +23,11 @@ class extends React.PureComponent {
     const { history } = np
 
     // 判断是否登录了
-    if (!localStorage.getItem('token')) {
+    if (!localStorage.getItem('searchHistory')) {
       const pathname = history.location.pathname
-      // 如果是登录页 不跳转 否则会死循环
-      if (!pathname.includes('/login')) {
-       	history.push('/login')
+      // 如果没有 searchHistory
+      if (!pathname.includes('/info/city')) {
+       	history.push('/info/city')
       }
     }
   }
