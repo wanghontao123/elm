@@ -3,11 +3,11 @@ import { Input, Button } from 'antd'
 
 export default class extends PureComponent {
     render() {
-        const { change, btn } = this.props
+        const { change, btn, placeholder } = this.props
         return (
             <div className="section-input">
                 <Input
-                    placeholder="请输入商家或美食名称"
+                    placeholder={placeholder}
                     onChange={change}
                 />
                 <Button

@@ -16,6 +16,7 @@ import {
     Home_takeaway,
     Detils_list,
     Detils_info,
+    CitySearch
 
 } from './router' // 引入页面
 
@@ -30,7 +31,11 @@ const route = [
                 component: City,
             },
             {
-                path: '/info/detils_list/:id',
+                path: '/info/citySearch/:id',
+                component: CitySearch,
+            },
+            {
+                path: '/info/detils_list',
                 component: Detils_list,
             },
             {
@@ -60,7 +65,7 @@ const route = [
                 component: Home,
                 router: [
                     {
-                        path: '/home_search/:id',
+                        path: '/home_search',
                         component: Home_search,
                     },
                     {

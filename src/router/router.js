@@ -7,6 +7,7 @@ export const Login = loader(() => import('@/pages/login')) //  登录页面
 export const Register = loader(() => import('@/pages/register')) // 注册
 export const Address = loader(() => import('@/pages/address')) // 地址
 export const City = loader(() => import('@/pages/city')) // 地址
+export const CitySearch = loader(() => import('@/pages/searchCity')) // 城市搜索
 export const Home_my = loader(() => import('@/pages/home_my')) // 我的页面
 export const Home_order = loader(() => import('@/pages/home_order')) // 订单
 export const Home_search = loader(() => import('@/pages/home_search')) // 搜索
