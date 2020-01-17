@@ -4,8 +4,7 @@ import qs from 'qs'
 import { cityGuess } from '@/actions/city-guess'
 import { cityHots } from '@/actions/city-hot'
 import { cityGroups } from '@/actions/city-group'
-import Header from '@@/Header'
-import City from '@@/City'
+import { Header, City } from '@@'
 import './style.less'
 
 export default @connect(state => ({

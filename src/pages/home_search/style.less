@@ -1,4 +1,4 @@
-.search {
+.home-search {
     width: 100%;
     height: 100%;
     font-size: 0.24rem;
@@ -37,6 +37,69 @@
             width: 100%;
             height: auto;
             background: white;
+        }
+        .home-search-good{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            >p{
+                padding: 0.2rem;
+                box-sizing: border-box;
+                font-weight: bolder;
+            }
+            dl{
+                width: 100%;
+                display: flex;
+                background: white;
+                padding: 0.2rem;
+                box-sizing: border-box;
+                dt{
+                    width: 15%;
+                    display: flex;
+                    align-items: flex-start;
+                    padding: 0.1rem  0.1rem 0.1rem 0;
+                    box-sizing: border-box;
+                    img{
+                        width: 100%;
+                        height: auto;
+                        display: block;
+                    }
+                }
+                dd{
+                    width: 100%;
+                    border-bottom: 1px solid #ccc;
+                    padding: 0.1rem 0;
+                    box-sizing: border-box;
+                    font-size: 0.23rem;
+                }
+            }
+        }
+        .history{
+            width: 100%;
+            p{
+                font-size: 0.25rem;
+                font-weight: bold;
+                padding: 0.1rem 0.2rem;
+                box-sizing: border-box;
+            }
+            p{
+                padding: 0.2rem;
+                box-sizing: border-box;
+                border-bottom: 1px solid #ccc;
+                background: white;
+            }
+            .clear{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding:  0.2rem  0;
+                box-sizing: border-box;
+                background: white;
+                color: rgb(0, 140, 255);
+                font-size: 0.3rem;
+                font-weight: bolder;
+            }
         }
     }
 }

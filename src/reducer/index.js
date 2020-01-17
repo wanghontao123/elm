@@ -4,7 +4,9 @@ import cityGuess from './city-guess'
 import cityHot from './city-hot'
 import cityGroup from './city-group'
 import takeaway from './takeaway'
+import search from './search'
 import seachCity from './seachCity'
+import homeSearch from './homeSearch'
 
 export {
     global,
@@ -13,5 +15,7 @@ export {
     cityGuess,
     cityHot,
     cityGroup,
-    seachCity
+    search,
+    seachCity,
+    homeSearch,
 }

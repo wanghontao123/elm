@@ -23,6 +23,7 @@ class extends Component {
         } else {
             history.push('/login')
         }
+        this.props.history.push(items.path)
     }
 
     render() {
