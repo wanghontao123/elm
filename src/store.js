@@ -24,7 +24,14 @@ const myPersistReducer = combineReducers({
     cityGuess: rdc.cityGuess,
     cityHot: rdc.cityHot,
     cityGroup:rdc.cityGroup,
-    takeaway: rdc.takeaway,
+    takeaway: persistReducer(
+        rootPersistConfig,
+        rdc.takeaway
+    ),
+    search: persistReducer(
+        rootPersistConfig,
+        rdc.search
+    ),
     seachCity: rdc.seachCity,
     homeSearch: rdc.homeSearch
 })
