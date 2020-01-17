@@ -15,7 +15,9 @@ class extends Component {
         super(props);
         this.state = {
             txt: '',
-            searchHistory: []
+            searchHistory: [],
+            bool: false,
+
         }
     }
     
@@ -24,13 +26,25 @@ class extends Component {
     }
 
     btn = () => {
-        const { txt, searchHistory } = this.state
-        searchHistory.push(txt)
+        const { txt, searchHistory, bool } = this.state
+        this.setState({
+            searchHistory: [...searchHistory, txt],
+            txt: '',
+            bool:true
+        })
         localStorage.setItem('searchHistory', JSON.stringify(searchHistory))
 
     }
 
+    //清除历史记录
+    clear = () => {
+        this.setState({ searchHistory: [], bool: true})
+    }
+
     render() {
+        const { bool, searchHistory } = this.state
+        console.log(searchHistory);
+        
         return (
             <div className="search"> 
                 <Header 
@@ -50,13 +64,25 @@ class extends Component {
                                 提交
                         </Button>
                     </div>
-                    <div className="section-info">
+                    {
+                        bool?
+                            <div className="section-info">
                         
-                    </div>
-                    <div className="hide-title">
-                        <p>搜索历史</p>
-                        <p>清空搜索历史</p>
-                    </div>
+                            </div>:
+                            <div className="hide-title">
+                                <p>搜索历史</p>
+                                {
+                                    searchHistory.map((v, k) => {
+                                        return (
+                                            <div key={k}>{v}</div>
+                                        )
+                                    })
+                                }
+                                <p onClick={this.clear}>清空搜索历史</p>
+                            </div>
+                    }
+                    
+                    
                 </section>
             </div>
         )
