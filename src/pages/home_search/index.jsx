@@ -3,11 +3,12 @@ import './style.less'
 import Header from '@@/Header'
 import { Input, Button } from 'antd'
 import { connect } from 'react-redux'
-import { searchTitle } from '@/actions/search'
+import { searchTitle, searchHistory } from '@/actions/search'
 export default  @connect(state => {
-    return { }
+    return { history: state.search.searchHistory }
 }, {
-    searchTitle
+    searchTitle,
+    searchHistory
 })
 
 class extends Component {
@@ -15,7 +16,7 @@ class extends Component {
         super(props);
         this.state = {
             txt: '',
-            searchHistory: []
+            bool: true,
         }
     }
     
@@ -24,13 +25,28 @@ class extends Component {
     }
 
     btn = () => {
-        const { txt, searchHistory } = this.state
-        searchHistory.push(txt)
-        localStorage.setItem('searchHistory', JSON.stringify(searchHistory))
+        const { history, searchHistory, searchTitle } = this.props
+        const { txt } = this.state
+        //searchTitle()
+        this.setState({
+            txt: '',
+            bool:false
+        })
+        searchHistory(txt)
+        localStorage.setItem('searchHistory', JSON.stringify(history))
 
     }
 
+    //清除历史记录
+    clear = () => {
+        const { searchHistory } = this.props
+        searchHistory([])
+        this.setState({bool: true})
+    }
+
     render() {
+        const { bool } = this.state
+        const { history } = this.props
         return (
             <div className="search"> 
                 <Header 
@@ -50,13 +66,25 @@ class extends Component {
                                 提交
                         </Button>
                     </div>
-                    <div className="section-info">
+                    {
+                        bool?
+                            <div className="section-info">
                         
-                    </div>
-                    <div className="hide-title">
-                        <p>搜索历史</p>
-                        <p>清空搜索历史</p>
-                    </div>
+                            </div>:
+                            <div className="hide-title">
+                                <p>搜索历史</p>
+                                {
+                                    history.map((v, k) => {
+                                        return (
+                                            <div key={k}>{v}</div>
+                                        )
+                                    })
+                                }
+                                <p onClick={this.clear}>清空搜索历史</p>
+                            </div>
+                    }
+                    
+                    
                 </section>
             </div>
         )
