@@ -17,3 +17,10 @@ export const Detils_info = loader(() => import('@/pages/detils_info')) // 详情
 export const Home_my = loader(() => import('@/pages/home_my')) // 我的页面
 export const Home_Info = loader(() => import('@/pages/homeMyPages/home_info.jsx')) // 我的信息页面
 export const Home_Balance = loader(() => import('@/pages/homeMyPages/home_balance.jsx')) // 我的余额页面
+export const Home_Point = loader(() => import('@/pages/homeMyPages/home_point.jsx')) // 我的积分页面
+
+export const Home_Shopping = loader(() => import('@/pages/homeMyPages/home_shopping.jsx')) // 积分商城
+export const Home_Member = loader(() => import('@/pages/homeMyPages/home_member.jsx')) // 饿了么会员卡
+export const Home_Serves = loader(() => import('@/pages/homeMyPages/home_serves.jsx')) // 服务中心
+export const Home_Download = loader(() => import('@/pages/homeMyPages/home_download.jsx')) // 下载饿了么APP
+

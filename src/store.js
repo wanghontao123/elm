@@ -7,6 +7,7 @@ import storage from 'redux-persist/lib/storage'
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2'
 import * as rdc from '@/reducer'
 
+
 //我要对那些state做数据持久化
 const rootPersistConfig = {
     key: 'root',

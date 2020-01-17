@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Header_Top, } from '@@'
-import './home_balance.less'
+import './home_serves.less'
 
 export default 
 @connect(state => ({
@@ -13,14 +13,11 @@ class extends Component {
             username,  // 用户名
         } } = this.props
         return (
-            <div className="home_balance">
+            <div className="home_serves">
                <Header_Top 
-                    title="我的余额"
+                    title="服务中心"
                />
-
-               <div className='home_balance_top'>
-               我的余额
-               </div>
+               服务中心
             </div>
         );
     }

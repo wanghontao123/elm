@@ -11,6 +11,7 @@ import Search from '@@/Search'
 import SearchData from '@@/SearchData'
 import SearchHistoryList from '@@/SearchHistoryList'
 import SearchHistory from '@@/SearchHistory'
+import CardStatus from '@@/CardStatus'
 
 export {
     Loading,
@@ -25,5 +26,6 @@ export {
     Search,
     SearchData,
     SearchHistoryList,
-    SearchHistory
+    SearchHistory,
+    CardStatus,
 }

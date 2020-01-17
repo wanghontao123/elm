@@ -49,7 +49,7 @@ class extends Component {
                 icon: 'iconfont icon-wodedaipingjia',
                 color: 'red',
                 fontSize: '',
-                path: ''
+                path: '/info/home_shopping'
             },
             {
                 id: 2,
@@ -57,7 +57,7 @@ class extends Component {
                 icon: 'iconfont icon-huangguan2',
                 color: 'yellow',
                 fontSize: '',
-                path: ''
+                path: '/info/home_member'
             },
             {
                 id: 3,
@@ -65,7 +65,7 @@ class extends Component {
                 icon: 'iconfont icon-diannao',
                 color: 'blue',
                 fontSize: '',
-                path: ''
+                path: '/info/home_serves'
             },
             {
                 id: 4,
@@ -73,7 +73,7 @@ class extends Component {
                 icon: 'iconfont icon-icon-test',
                 color: 'blue',
                 fontSize: '',
-                path: ''
+                path: '/info/home_download'
             },
         ]
         // <img src='//elm.cangdu.org/img/default.jpg'/>
@@ -105,7 +105,7 @@ class extends Component {
                         </div>
                     </div>
                     <div className="section_mini">
-                        <div>
+                        <div onClick={() => this.props.history.push('/info/home_balance')}>
                             <p><span>{balance ? balance.toFixed(2) : '0.00'}</span>元</p>
                             <p>我的余额</p>
                         </div>
@@ -113,7 +113,7 @@ class extends Component {
                             <p><span>{gift_amount ? gift_amount : 0}</span>个</p>
                             <p>我的优惠</p>
                         </div>
-                        <div>
+                        <div  onClick={() => this.props.history.push('/info/home_point')}>
                             <p><span>{point ? point : 0}</span>分</p>
                             <p>我的积分</p>
                         </div>
