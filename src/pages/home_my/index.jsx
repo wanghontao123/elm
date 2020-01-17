@@ -18,7 +18,7 @@ class extends Component {
 
     // 点击list 列表跳转
     jump = items => {
-        console.log(items);
+        this.props.history.push(items.path)
     }
 
     render() {
@@ -29,7 +29,7 @@ class extends Component {
                 icon: 'iconfont icon-dingdan',
                 color: '',
                 fontSize: '',
-                path: ''
+                path: '/home_order'
             },
             {
                 id: 1,

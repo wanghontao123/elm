@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
 import _ from 'loadsh'
 import { connect } from 'react-redux'
-import Header from '@@/Header'
 import { seachCity } from '@/actions/seachCity'
-import Search from '@@/Search'
-import SearchData from '@@/SearchData'
-import SearchHistoryList from '@@/SearchHistoryList'
+import { Search, Header, SearchData, SearchHistoryList } from '@@'
 import './styles.less'
 
 export default  @connect(state => ({
