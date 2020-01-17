@@ -78,7 +78,7 @@ const route = [
                 component: Home,
                 router: [
                     {
-                        path: '/home_search',
+                        path: '/home_search/:geohash',
                         component: Home_search,
                     },
                     {

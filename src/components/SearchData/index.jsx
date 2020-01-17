@@ -3,11 +3,11 @@ import SearchHistory from '@@/SearchHistory'
 
 export default class extends PureComponent {
     render() {
-        const { seachData, click } = this.props
+        const { seachData, click, val } = this.props
         return (
             <>
                 {
-                    seachData.length > 0 ?
+                    seachData.length > 0 && val ?
                         <div className='search'>
                             {
                                 seachData.length > 0 && seachData.map((v, k) => (

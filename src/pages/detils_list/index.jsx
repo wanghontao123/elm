@@ -74,9 +74,8 @@ class extends Component {
             qid = target.id
         })()
         let will = document.querySelector(`.select_list #q${qid}`)
-        will.scrollIntoView({behavior: "instant", inline: "nearest"})
-        /* .scrollTop
-         */
+        if(will) 
+        will.scrollIntoView()
     }
     
     witchImg = ({ target }) => {
@@ -192,7 +191,11 @@ class extends Component {
                                                                     <img src={`//elm.cangdu.org/img/${value.image_path}`} alt="" onError={witchImg} />
                                                                 </div>
                                                                 <div className="section_good_text">
-
+                                        <p>{value.name}{value.attributes.length > 0 && '1'}</p>
+                                                                    <p></p>
+                                                                    <p></p>
+                                                                    <p></p>
+                                                                    <p></p>
                                                                 </div>
                                                             </div>
                                                         ))

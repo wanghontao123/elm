@@ -12,7 +12,6 @@ class extends Component {
 
     // 点击list 列表跳转
     jump = items => {
-        console.log(items);
         this.props.history.push(items.path)
     }
     // 点击 判断是否登录状态
@@ -23,6 +22,7 @@ class extends Component {
         } else {
             history.push('/login')
         }
+        this.props.history.push(items.path)
     }
 
     render() {

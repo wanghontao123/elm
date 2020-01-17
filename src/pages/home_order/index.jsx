@@ -1,14 +1,22 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import Header from '@@/Header'
 import './style.less'
 
-class index extends Component {
+export default class extends Component {
+    back = () => {
+        this.props.history.go('-1')
+    }
     render() {
         return (
             <div className="order">
-                home_order
+                <Header 
+                    left={'left'}
+                    mid={'我的订单'}
+                    right={''}
+                    back={this.back}
+                />
             </div>
-        );
+        )
     }
 }
 
-export default index;
