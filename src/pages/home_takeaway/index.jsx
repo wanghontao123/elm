@@ -92,6 +92,7 @@ class extends PureComponent {
         const { props: { shpList }, toInfo, test, SimpleSwiperWithParams } = this
         const sera = JSON.parse(localStorage.getItem('searchHistory'))
         const rule = sera[sera.length - 1].address
+        
         return (
             <div className="home_takeaway">
                 {/* 头部 */}

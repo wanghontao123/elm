@@ -127,7 +127,7 @@ class extends React.PureComponent {
                 </div>
                 {/* 温馨提示： */}
                 <div className='pages_login_hint'>
-                    <p>温馨提示： 未注册国德账号，登录时将自动注册</p>
+                    <p>温馨提示： 未注册过的账号，登录时将自动注册</p>
                     <p>注册过的用户可凭账号密码登录</p>
                 </div>
                 {/* 登录按钮 */}
