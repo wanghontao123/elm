@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import SearchHistory from '@@/SearchHistory'
+import { SearchHistory } from '@@'
 
 export default class extends PureComponent {
     render() {

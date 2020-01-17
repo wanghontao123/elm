@@ -85,7 +85,7 @@ class extends Component {
                             : ''
                     }
                     {
-                        sera ?
+                        sera.length ?
                             <div className='history'>
                                 <p>搜索历史</p>
                                 <div className='text'>

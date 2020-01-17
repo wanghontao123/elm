@@ -9,6 +9,7 @@ import City from '@@/City'
 import Search from '@@/Search'
 import SearchData from '@@/SearchData'
 import SearchHistoryList from '@@/SearchHistoryList'
+import SearchHistory from '@@/SearchHistory'
 
 export {
     Loading,
@@ -21,5 +22,6 @@ export {
     City,
     Search,
     SearchData,
-    SearchHistoryList
+    SearchHistoryList,
+    SearchHistory
 }
