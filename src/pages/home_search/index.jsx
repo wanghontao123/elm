@@ -3,11 +3,12 @@ import './style.less'
 import Header from '@@/Header'
 import { Input, Button } from 'antd'
 import { connect } from 'react-redux'
-import { searchTitle } from '@/actions/search'
+import { searchTitle, searchHistory } from '@/actions/search'
 export default  @connect(state => {
-    return { }
+    return { history: state.search.searchHistory }
 }, {
-    searchTitle
+    searchTitle,
+    searchHistory
 })
 
 class extends Component {
@@ -15,9 +16,7 @@ class extends Component {
         super(props);
         this.state = {
             txt: '',
-            searchHistory: [],
-            bool: false,
-
+            bool: true,
         }
     }
     
@@ -26,24 +25,28 @@ class extends Component {
     }
 
     btn = () => {
-        const { txt, searchHistory, bool } = this.state
+        const { history, searchHistory, searchTitle } = this.props
+        const { txt } = this.state
+        //searchTitle()
         this.setState({
-            searchHistory: [...searchHistory, txt],
             txt: '',
             bool:true
         })
-        localStorage.setItem('searchHistory', JSON.stringify(searchHistory))
+        searchHistory(txt)
+        localStorage.setItem('searchHistory', JSON.stringify(history))
 
     }
 
     //清除历史记录
     clear = () => {
-        this.setState({ searchHistory: [], bool: true})
+        const { searchHistory } = this.props
+        searchHistory([])
+        this.setState({bool: true})
     }
 
     render() {
-        const { bool, searchHistory } = this.state
-        console.log(searchHistory);
+        const { bool } = this.state
+        const { history } = this.props
         
         return (
             <div className="search"> 
@@ -72,7 +75,7 @@ class extends Component {
                             <div className="hide-title">
                                 <p>搜索历史</p>
                                 {
-                                    searchHistory.map((v, k) => {
+                                    history.map((v, k) => {
                                         return (
                                             <div key={k}>{v}</div>
                                         )
