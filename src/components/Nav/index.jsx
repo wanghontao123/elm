@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react'
-import { Link, withRouter } from 'react-router-dom'
-import cs from 'classnames'
-import './styles.less'
+import { NavLink, withRouter } from 'react-router-dom'
 import { Icon } from 'antd'
+import './styles.less'
 
 export default @withRouter
 class extends PureComponent {
@@ -15,16 +14,17 @@ class extends PureComponent {
                 {
                     data.map((v, k) => {
                         return (
-                            <Link
+                            <NavLink
                                 to={v.path}
                                 key={k}
-                                className={cs({ 'aStyle': url === v.path })}
+                                activeClassName='aStyle'
+                                exact
                             >
                                 {
                                     v.icon && <p><Icon type={v.icon} /></p>
                                 }
                                 <p>{v.title}</p>
-                            </Link>
+                            </NavLink>
                         )
                     })
                 }

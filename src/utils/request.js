@@ -53,7 +53,7 @@ export function requestPost(url, action = {}) {
             method: 'POST',
             baseURL: '/api',
             url,
-            data: qs.stringify(action),
+            data: action,
         })
             .then(res => resolve(res))
             .catch(err => reject(err))

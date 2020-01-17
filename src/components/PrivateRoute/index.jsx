@@ -8,13 +8,13 @@ import { renderRoutes } from 'react-router-config'
  */
 export default @withRouter
 class extends React.PureComponent {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.redirect(props)
   }
-  
+
   // nextProps
-  componentWillReceiveProps (np) {
+  componentWillReceiveProps(np) {
     this.redirect(np)
   }
 
@@ -23,18 +23,17 @@ class extends React.PureComponent {
     const { history } = np
 
     // 判断是否登录了
-    if (!localStorage.getItem('token')) {
+    if (!localStorage.getItem('user_id')) {
       const pathname = history.location.pathname
-      // 如果是登录页 不跳转 否则会死循环
-      if (!pathname.includes('/login')) {
-       	history.push('/login')
+      if (!pathname.includes('/info/city') && !pathname.includes('/login')) {
+        history.push('/info/city')
       }
     }
   }
 
-  render () {
+  render() {
     const { route } = this.props
-     return renderRoutes(route)
+    return renderRoutes(route)
   }
 }
 

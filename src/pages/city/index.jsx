@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import Header from '@@/Header'
 import { connect } from 'react-redux'
+import qs from 'qs'
 import { cityGuess } from '@/actions/city-guess'
 import { cityHots } from '@/actions/city-hot'
 import { cityGroups } from '@/actions/city-group'
-import City from '@@/City'
-import qs from 'qs'
+import { Header, City } from '@@'
 import './style.less'
 
 export default @connect(state => ({
@@ -38,7 +37,7 @@ class extends Component {
     }
     //点击跳转到搜索页面附带id
     click = item => {
-        this.props.history.push(`/home_search/${item}`)
+        this.props.history.push(`/info/citySearch/${item}`)
     }
 
     render() {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import PrivateRoute from '@@/PrivateRoute'
 
@@ -16,19 +16,23 @@ import {
     Home_takeaway,
     Detils_list,
     Detils_info,
+    CitySearch
 
 } from './router' // 引入页面
-
 
 const route = [
     {
         path: '/info',
         component: Layouts_Info,
         router: [
-            
+
             {
                 path: '/info/city',
                 component: City,
+            },
+            {
+                path: '/info/citySearch/:id',
+                component: CitySearch,
             },
             {
                 path: '/info/detils_list',
@@ -61,7 +65,7 @@ const route = [
                 component: Home,
                 router: [
                     {
-                        path: '/home_search/:id',
+                        path: '/home_search/:geohash',
                         component: Home_search,
                     },
                     {
@@ -75,7 +79,7 @@ const route = [
                     {
                         path: '/',
                         component: Home_takeaway,
-                    } 
+                    }
                 ]
             }
         ]

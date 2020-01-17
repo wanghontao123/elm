@@ -1,4 +1,4 @@
-.home-search {
+.search-city {
     width: 100%;
     height: 100%;
     font-size: 0.24rem;
@@ -12,13 +12,20 @@
         color: white;
         display: flex;
         align-items: center;
-        padding-right: 1rem;
         box-sizing: border-box;
         p:first-child {
             width: 0.8rem;
             text-align: center;
         }
-        p:nth-child(2) {flex: 1;text-align: center;}
+        p:nth-child(2) {
+            flex: 1;text-align: center;
+        }
+        p:last-child{
+            width: 1.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     }
     >section {
         flex: 1;
@@ -27,66 +34,54 @@
         .section-input{
             width: 100%;
             display: flex;
+            flex-direction: column;
             padding: 0.2rem;
             box-sizing: border-box;
             background: white;
-            input {flex: 1; }
-            button { margin-left: 0.2rem;}
+            input {
+                width: 100%; 
+                height: 0.6rem;
+            }
+            button{
+                margin-top: 0.2rem;
+            }
         }
         .search{
             width: 100%;
             height: auto;
             background: white;
-        }
-        .home-search-good{
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            >p{
-                padding: 0.2rem;
-                box-sizing: border-box;
-                font-weight: bolder;
-            }
             dl{
-                width: 100%;
-                display: flex;
-                background: white;
                 padding: 0.2rem;
                 box-sizing: border-box;
-                dt{
-                    width: 15%;
-                    display: flex;
-                    align-items: flex-start;
-                    padding: 0.1rem  0.1rem 0.1rem 0;
-                    box-sizing: border-box;
-                    img{
-                        width: 100%;
-                        height: auto;
-                        display: block;
-                    }
-                }
-                dd{
-                    width: 100%;
-                    border-bottom: 1px solid #ccc;
+                border-top: 1px solid #ccc;
+                dt,dd{
                     padding: 0.1rem 0;
                     box-sizing: border-box;
-                    font-size: 0.23rem;
+                }
+                dd{
+                    font-size: 0.2rem;
                 }
             }
         }
         .history{
             width: 100%;
             p{
-                font-size: 0.25rem;
-                font-weight: bold;
+                font-size: 0.2rem;
                 padding: 0.1rem 0.2rem;
                 box-sizing: border-box;
             }
-            p{
+            dl{
                 padding: 0.2rem;
                 box-sizing: border-box;
                 border-bottom: 1px solid #ccc;
                 background: white;
+                dt,dd{
+                    padding: 0.1rem 0;
+                    box-sizing: border-box;
+                }
+                dd{
+                    font-size: 0.2rem;
+                }
             }
             .clear{
                 width: 100%;
@@ -96,9 +91,6 @@
                 padding:  0.2rem  0;
                 box-sizing: border-box;
                 background: white;
-                color: rgb(0, 140, 255);
-                font-size: 0.3rem;
-                font-weight: bolder;
             }
         }
     }

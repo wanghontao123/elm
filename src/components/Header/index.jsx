@@ -7,7 +7,7 @@ export default class extends Component {
         return (
             <div className="header-top">
                 <p onClick={back}><Icon type={left} /></p>
-                <p>{mid}</p>
+                <p> {mid} </p>
                 <p onClick={jump}>{right}</p>
             </div>
         )

@@ -1,90 +1,103 @@
-import React, { Component } from 'react';
-import './style.less'
-import Header from '@@/Header'
-import { Input, Button } from 'antd'
+import React, { Component } from 'react'
+import _ from 'loadsh'
 import { connect } from 'react-redux'
-import { searchTitle, searchHistory } from '@/actions/search'
-export default  @connect(state => {
-    return { history: state.search.searchHistory }
-}, {
-    searchTitle,
-    searchHistory
-})
+import { homeSearchs } from '@/actions/homeSearch'
+import { Search, Header, SearchHistoryList } from '@@'
+import './style.less'
 
+export default @connect(state => ({
+    homeSearch: state.homeSearch.homeSearch
+}), {
+    homeSearchs,
+})
 class extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
-            txt: '',
-            bool: true,
+            val: '',
+            searchGoods: []
         }
     }
-    
-    getVal = evt => {
-        this.setState({ txt: evt.target.value })
-    }
 
+    //搜索的value值
+    change = evt => {
+        this.setState({ val: evt.target.value })
+    }
+    //点击搜索
     btn = () => {
-        const { history, searchHistory, searchTitle } = this.props
-        const { txt } = this.state
-        //searchTitle()
-        this.setState({
-            txt: '',
-            bool:false
-        })
-        searchHistory(txt)
-        localStorage.setItem('searchHistory', JSON.stringify(history))
-
+        const { val } = this.state
+        const geohash = _.get(this.props, 'match.params.geohash', '')
+        const obj = {
+            keyword: val,
+            geohash,
+        }
+        this.props.homeSearchs(obj)
+        let arr = JSON.parse(localStorage.getItem('searchHistory')) || []
+        arr.push(val)
+        localStorage.setItem('searchHistory', JSON.stringify(arr))
+    }
+    //回到上一级
+    back = () => {
+        this.props.history.go('-1')
     }
 
-    //清除历史记录
     clear = () => {
-        const { searchHistory } = this.props
-        searchHistory([])
-        this.setState({bool: true})
+        localStorage.removeItem('searchHistory')
+        this.setState({
+            val: ''
+        })
     }
 
     render() {
-        const { bool } = this.state
-        const { history } = this.props
+        const { homeSearch } = this.props
+        const { val } = this.state
+        const sera = JSON.parse(localStorage.getItem('searchHistory'))
         return (
-            <div className="search"> 
-                <Header 
+            <div className="home-search">
+                <Header
                     left='left'
                     mid='搜索'
+                    back={this.back}
                 />
                 <section>
-                    <div className="section-input">
-                        <Input  
-                            placeholder="请输入商家或美食名称"
-                            onChange={this.getVal}
-                            value={this.state.txt}
-                        /> 
-                        <Button 
-                            type="primary" 
-                            onClick={this.btn}>
-                                提交
-                        </Button>
-                    </div>
+                    <Search
+                        change={this.change}
+                        btn={this.btn}
+                        placeholder={'请输入商家或美食名称'}
+                    />
                     {
-                        bool?
-                            <div className="section-info">
-                        
-                            </div>:
-                            <div className="hide-title">
-                                <p>搜索历史</p>
+                        homeSearch.length > 0 && val ?
+                            <div className='home-search-good'>
+                                <p>商家</p>
                                 {
-                                    history.map((v, k) => {
-                                        return (
-                                            <div key={k}>{v}</div>
-                                        )
-                                    })
+                                    homeSearch.map((v, k) => (
+                                        <dl key={k}>
+                                            <dt><img src={`//elm.cangdu.org/img/${v.image_path}`} alt={v.name} /></dt>
+                                            <dd>
+                                                <p>{v.name}</p>
+                                                <p>月售 {v.recent_order_num} 单</p>
+                                                <p> {v.float_minimum_order_amount} 元起送/距离{v.distance}</p>
+                                            </dd>
+                                        </dl>
+                                    ))
                                 }
-                                <p onClick={this.clear}>清空搜索历史</p>
                             </div>
+                            : ''
                     }
-                    
-                    
+                    {
+                        sera ?
+                            <div className='history'>
+                                <p>搜索历史</p>
+                                <div className='text'>
+                                    {
+                                        sera.length > 0 && sera.map((v, k) => (
+                                            <p key={k}>{v}</p>
+                                        ))
+                                    }
+                                </div>
+                                <div className='clear' onClick={this.clear}>清空搜索历史</div>
+                            </div> : ''
+                    }
                 </section>
             </div>
         )
