@@ -28,7 +28,10 @@ const myPersistReducer = combineReducers({
         rootPersistConfig,
         rdc.takeaway
     ),
-
+    search: persistReducer(
+        rootPersistConfig,
+        rdc.search
+    )
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
