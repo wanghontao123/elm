@@ -3,7 +3,7 @@ import SearchHistory from '@@/SearchHistory'
 
 export default class extends PureComponent {
     render() {
-        const { sera, clear, click } = this.props
+        const { sera, clear, click, clearText } = this.props
         return (
             <>
                 {
@@ -21,7 +21,7 @@ export default class extends PureComponent {
                                     ))
                                 }
                             </div>
-                            <div className='clear' onClick={clear}>清空所有</div>
+                            <div className='clear' onClick={clear}>{clearText}</div>
                         </div> : ''
                 }
             </>

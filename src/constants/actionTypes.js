@@ -13,3 +13,4 @@ export const SHOP_FOOD = 'SHOP_FOOD' // 商铺详情
 export const LOGIN_POST = 'LOGIN_POST' // 登录
 export const CAPTCHAS_POST = 'CAPTCHAS_POST' // 验证码
 export const SEACH_CITY = 'SEACH_CITY' // 搜索城市
+export const HOME_SEARCH = 'HOME_SEARCH' // 搜索店铺

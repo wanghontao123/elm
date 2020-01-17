@@ -25,7 +25,8 @@ const myPersistReducer = combineReducers({
     cityHot: rdc.cityHot,
     cityGroup:rdc.cityGroup,
     takeaway: rdc.takeaway,
-    seachCity: rdc.seachCity
+    seachCity: rdc.seachCity,
+    homeSearch: rdc.homeSearch
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

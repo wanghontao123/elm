@@ -48,6 +48,9 @@ class extends Component {
     //清除历史纪录
     clear = () => {
         localStorage.removeItem('placehHistory')
+        this.setState({
+            val: ''
+        })
     }
     //跳转页面
     jump = () => {
@@ -56,6 +59,7 @@ class extends Component {
 
     render() {
         const { seachData } = this.props
+        const { val } = this.state
         const sera = JSON.parse(localStorage.getItem('placehHistory'))
         return (
             <div className="search-city">
@@ -75,11 +79,13 @@ class extends Component {
                     <SearchData
                         seachData={seachData} // 搜索匹配到的数据
                         click={this.click} // 点击跳转页面是显示对应的数据
+                        val={val}
                     />
                     <SearchHistoryList
                         sera={sera}  //历史纪录的数据
                         clear={this.clear} // 清除历史纪录
                         click={this.click} // 点击跳转页面是显示对应的数据
+                        clearText={'清空所有'}
                     />
                 </section>
             </div>
