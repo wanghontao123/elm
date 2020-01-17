@@ -25,7 +25,6 @@ class extends React.PureComponent {
     // 判断是否登录了
     if (!localStorage.getItem('user_id')) {
       const pathname = history.location.pathname
-      // 如果没有 searchHistory
       if (!pathname.includes('/info/city') && !pathname.includes('/login')) {
         history.push('/info/city')
       }

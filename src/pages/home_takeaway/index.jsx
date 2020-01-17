@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import _ from 'lodash'
 import { connect } from 'react-redux'
 import { shoplist } from "@/actions/takeaway"
-import { CAROUSEL_LIST, SHOP_LIST, SHOP_INFO } from '@/constants/actionTypes'
+import { CAROUSEL_LIST, SHOP_LIST, } from '@/constants/actionTypes'
 import Swiper from 'react-id-swiper'
 import Header from '@@/Header'
 import 'swiper/css/swiper.css'
@@ -29,8 +29,6 @@ class extends PureComponent {
             latitude: '31.22967',
             longitude: '121.4762'
         })
-
-
     }
 
     // 跳 详情
@@ -45,6 +43,12 @@ class extends PureComponent {
     
     test = id => {
         console.log(id)
+    }
+
+    jump = evt => {
+        const value = evt.target.innerHTML
+        const { history } = this.props
+        value === '我的' ? history.push('/home_my') : history.push('/login')
     }
 
     // swiper 导航
@@ -99,8 +103,9 @@ class extends PureComponent {
                 <Header
                     left={'search'}
                     mid={rule}
-                    right={'登录 | 注册'}
+                    right={localStorage.getItem('user_id') ? '我的' : '登录 | 注册'}
                     back={this.back}
+                    jump={this.jump}
                 />
                 {/* 主体 */}
                 <div className="takeaway-section">

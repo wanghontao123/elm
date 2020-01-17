@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 import Header from '@@/Header'
 import { seachCity } from '@/actions/seachCity'
 import Search from '@@/Search'
-import SearchHistory from '@@/SearchHistory'
+import SearchData from '@@/SearchData'
+import SearchHistoryList from '@@/SearchHistoryList'
 import './styles.less'
 
 export default  @connect(state => ({
@@ -37,9 +38,9 @@ class extends Component {
     }
     //点击搜索到的跳转，存localStorage
     click = item => {
-        const { placehHistory } = this.state
-        placehHistory.push(item)
-        localStorage.setItem('placehHistory', JSON.stringify(placehHistory))
+        let arr = JSON.parse(localStorage.getItem('placehHistory')) || []
+        arr.push(item)
+        localStorage.setItem('placehHistory', JSON.stringify(arr))
         const geohash = item.geohash
         this.props.history.push(`/?geohash=${geohash}`)
     }
@@ -51,6 +52,7 @@ class extends Component {
     clear = () => {
         localStorage.removeItem('placehHistory')
     }
+    //跳转页面
     jump = () => {
         this.props.history.push('/info/city')
     }
@@ -69,42 +71,19 @@ class extends Component {
                 />
                 <section>
                     <Search
-                        change={this.change}
-                        btn={this.btn}
-                        placeholder={'输入学校、商务楼、地址'}
+                        change={this.change} // 可控组件
+                        btn={this.btn} // 点击提交搜索
+                        placeholder={'输入学校、商务楼、地址'} //placeholder提示文字
                     />
-                    {
-                        seachData.length > 0 ?
-                            <div className='search'>
-                                {
-                                    seachData.length > 0 && seachData.map((v, k) => (
-                                        <SearchHistory
-                                            v={v}
-                                            key={k}
-                                            click={this.click}
-                                        />
-                                    ))
-                                }
-                            </div> : ''
-                    }
-                    {
-                        sera ?
-                            <div className='history'>
-                                <p>搜索历史</p>
-                                <div className='text'>
-                                    {
-                                        sera.length > 0 && sera.map((v, k) => (
-                                            <SearchHistory
-                                                v={v}
-                                                key={k}
-                                                click={this.click}
-                                            />
-                                        ))
-                                    }
-                                </div>
-                                <div className='clear' onClick={this.clear}>清空所有</div>
-                            </div> : ''
-                    }
+                    <SearchData
+                        seachData={seachData} // 搜索匹配到的数据
+                        click={this.click} // 点击跳转页面是显示对应的数据
+                    />
+                    <SearchHistoryList
+                        sera={sera}  //历史纪录的数据
+                        clear={this.clear} // 清除历史纪录
+                        click={this.click} // 点击跳转页面是显示对应的数据
+                    />
                 </section>
             </div>
         )
