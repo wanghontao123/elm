@@ -42,6 +42,10 @@ class extends PureComponent {
     toKind = id => {
         console.log(id)
     }
+    
+    test = () => {
+        console.log('test')
+    }
 
     // swiper 导航
     SimpleSwiperWithParams = () => {

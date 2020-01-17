@@ -62,22 +62,37 @@ class extends Component {
         })()
     }
 
-    /* tabFood = ({ target, target: { className } }) => {
-        className == 'select_nav_title' && (() => {
+    tabFood = ({ target }) => {
+        let qid = ''
+        target.className == 'select_nav_title' && (() => {
             const { toArray } = this
-            let titles = document.querySelectorAll('.select_nav_title')
+            let titles = document.querySelectorAll('.select_nav div')
             toArray(titles).map(res => {
-                res.style = 'background: #f3f3f3'
-                res.style = 'border-left: 0.1rem solid #f3f3f3'
+                res.className = 'select_nav_title'
             })
+            target.className = 'select_nav_title_active'
+            qid = target.id
         })()
-    } */
+        let will = document.querySelector(`.select_list #q${qid}`)
+        will.scrollIntoView({behavior: "instant", inline: "nearest"})
+        /* .scrollTop
+         */
+    }
     
+    witchImg = ({ target }) => {
+        target.src = 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2970038114,3134509011&fm=26&gp=0.jpg'
+    }
 
     render() {
-        const { props: { shpInfo, shpFood }, toBack, toTab, tabFood } = this
+        const { props: { shpInfo, shpFood }, toBack, toTab, tabFood, witchImg } = this
         const { image_path, name, piecewise_agent_fee, promotion_info, activities = [] } = shpInfo
         const { category_list = [] } = shpFood
+        category_list.map(res => {
+            res.isActive = 'select_nav_title'
+        })
+        category_list.length > 0 && (() => {
+            category_list[0].isActive = 'select_nav_title_active'
+        })()
         // console.log(category_list)
         return (
             <div className="details_list">
@@ -135,18 +150,58 @@ class extends Component {
                     {/* 内容区 */}
                     <div className="shop_list_tab_content content_products" style={{display: "flex"}}>
                         <div className="products_select">
+                            {/* 索引 导航 */}
                             <div className="select_nav" onClick={tabFood}>
                                 {
-                                    category_list.length > 1 && category_list.map((res, key) => (
-                                        <div
-                                            className="select_nav_title" 
-                                            key={key}
-                                        >{res.name}</div>
-                                    ))
+                                    category_list.length > 1 && category_list.map((res, key) => {
+                                        return res.foods.length != 0 && (() => {
+                                            return <div
+                                                id={res.id}
+                                                className={res.isActive}
+                                                key={key}
+                                            >
+                                            {res.name}</div>
+                                        })()
+                                    })
                                 }
                             </div>
                             <div className="select_list">
+                                {
+                                    category_list.length > 1 && category_list.map((res, key) => {
+                                        return res.foods.length != 0 && (() => {
+                                            return <div
+                                                key={key}
+                                                id={`q${res.id}`}
+                                                className="select_list_region"
+                                            >
+                                                <div className="select_list_header">
+                                                    <div className="select_list_header_title">{res.name}</div>
+                                                    <div className="select_list_header_info">{res.description}</div>
+                                                    <div className="select_list_header_move">· · ·</div>
+                                                </div>
+                                                <div className="select_list_section">
+                                                    {
+                                                        res.foods.length > 0 && res.foods.map((value, index) => (
+                                                            <div
+                                                                key={index}
+                                                                className="select_list_section_good"
+                                                            >
+                                                                {/* {console.log(value)} */}
 
+                                                                <div className="section_good_img">
+                                                                    <img src={`//elm.cangdu.org/img/${value.image_path}`} alt="" onError={witchImg} />
+                                                                </div>
+                                                                <div className="section_good_text">
+
+                                                                </div>
+                                                            </div>
+                                                        ))
+                                                    }
+                                                </div>
+                                            </div>
+                                        })()
+                                    })
+                                }
                             </div>
                         </div>
                         <div className="products_buy">
