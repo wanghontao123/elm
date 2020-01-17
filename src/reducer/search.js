@@ -7,16 +7,12 @@ const initState = {
 
 const arr = []
 function history(item) {
-    
     if(item != '') {
         arr.push(item)
-        return arr
     } else {
-        return []
+        arr.length = 0
     }
-    
-
-
+    return arr
 }
 
 

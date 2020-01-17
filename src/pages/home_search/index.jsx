@@ -30,7 +30,7 @@ class extends Component {
         //searchTitle()
         this.setState({
             txt: '',
-            bool:true
+            bool:false
         })
         searchHistory(txt)
         localStorage.setItem('searchHistory', JSON.stringify(history))
@@ -47,7 +47,6 @@ class extends Component {
     render() {
         const { bool } = this.state
         const { history } = this.props
-        
         return (
             <div className="search"> 
                 <Header 
