@@ -3,6 +3,8 @@ import { requestPost, requestGet } from '@/utils/request'
 // 张慧敏 api
 
 // 李晓超 api
+export const login = options => requestPost(api.login, options)
+export const captchas = options => requestPost(api.captchas, options)  // 验证码
 
 // 王红涛 api
 

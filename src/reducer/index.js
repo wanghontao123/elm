@@ -5,6 +5,7 @@ import cityHot from './city-hot'
 import cityGroup from './city-group'
 import takeaway from './takeaway'
 import seachCity from './seachCity'
+
 export {
     global,
     login,

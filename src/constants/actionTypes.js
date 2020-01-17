@@ -8,4 +8,8 @@ export const CITY_GROUP = 'CITY_GROUP' //全部城市
 export const SHOP_LIST = 'SHOP_LIST' // 商铺列表
 export const SHOP_INFO = 'SHOP_INFO' // 商铺详情
 export const SHOP_FOOD = 'SHOP_FOOD' // 商铺详情
+
+// 
+export const LOGIN_POST = 'LOGIN_POST' // 登录
+export const CAPTCHAS_POST = 'CAPTCHAS_POST' // 验证码
 export const SEACH_CITY = 'SEACH_CITY' // 搜索城市
