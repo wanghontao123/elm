@@ -42,8 +42,9 @@ class extends PureComponent {
     toKind = id => {
         console.log(id)
     }
-    back = () => {
-        this.props.history.push('/home_search')
+    
+    test = id => {
+        console.log(id)
     }
 
     // swiper 导航
