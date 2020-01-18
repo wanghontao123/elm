@@ -194,7 +194,7 @@ class extends Component {
                                                                     <p>
                                                                         <span>{value.name}</span>
                                                                         {
-                                                                            console.log(_.get(value.attributes, '[0].icon_name', ''))                
+                                                                            /* console.log(_.get(value.attributes, '[0].icon_name', '')) */                
                                                                         }
                                                                     </p>            
                                                                     <p></p>

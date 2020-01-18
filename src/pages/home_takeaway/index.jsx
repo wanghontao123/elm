@@ -4,9 +4,10 @@ import { connect } from 'react-redux'
 import { shoplist } from "@/actions/takeaway"
 import { CAROUSEL_LIST, SHOP_LIST, } from '@/constants/actionTypes'
 import Swiper from 'react-id-swiper'
+import Header from '@@/Header'
 import 'swiper/css/swiper.css'
 import { hump } from '@/utils/string'
-import { Good_view, Header } from '@@'
+import { Good_view } from '@@'
 import './style.less'
 
 export default @connect(state => {
@@ -32,7 +33,7 @@ class extends PureComponent {
 
     // 跳 详情
     toInfo = id => {
-        this.props.history.push(`/info/detils_list/${id}`)
+        this.props.history.push(`/info/detils_list/1`)
     }
 
     // 跳 分类
