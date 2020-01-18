@@ -45,7 +45,7 @@ const route = [
                 component: CitySearch,
             },
             {
-                path: '/info/detils_list',
+                path: '/info/detils_list/:id',
                 component: Detils_list,
             },
             {

@@ -7,6 +7,7 @@ import takeaway from './takeaway'
 import search from './search'
 import seachCity from './seachCity'
 import homeSearch from './homeSearch'
+import userInfo from './userInfo'
 
 export {
     global,
@@ -18,4 +19,5 @@ export {
     search,
     seachCity,
     homeSearch,
+    userInfo,
 }

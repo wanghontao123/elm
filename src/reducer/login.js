@@ -8,7 +8,7 @@ const loginState = {
 }
 
 export default handleActions({
-    [LOGIN_POST]: (state, action) => ({ ...state, loginData: _.get(action.payload, 'data', []) }),
+    [LOGIN_POST]: (state, action) => ({ ...state, loginData: _.get(action, 'payload.data', []) }),
     [CAPTCHAS_POST]: (state, action) => ({ ...state, captchasData: _.get(action.payload, 'data.code', []) }), // 验证码
 
 }, loginState)

@@ -3,7 +3,40 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    >p{
+        width: 100%;
+        padding: 0.2rem;
+        box-sizing: border-box;
+        b{
+            font-weight: bolder;
+        }
+    }
+   .vip-services{
+       padding-left: 0.2rem;
+       box-sizing: border-box;
+       width: 100%;
+       background: white;
+       .vip-top{
+           width: 100%;
+           display: flex;
+           align-items: center;
+           padding: 0.2rem 0;
+           box-sizing: border-box;
+           justify-content: space-between;
+           p:first-child{
+               width: 20%;
+               font-size: 0.28rem;
+           }
+           p:last-child{
+               width: 25%;
+               font-size: 0.25rem;
+               color: #c5c5c5;
+           }
 
-   
+           p:nth-child(2){
+               flex: 1;
+           }
+       }
+   }
     
 }
