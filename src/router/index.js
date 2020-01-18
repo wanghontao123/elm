@@ -26,7 +26,10 @@ import {
     Home_Download, // 下载饿了么APP
     SetUserName, // 修改用户名
     Goods_Address, // 编辑地址
-
+    InvoiceRecord,
+    Payment,
+    UseCart,
+    VipDescription
 } from './router' // 引入页面
 
 
@@ -76,6 +79,22 @@ const route = [
                 // 饿了么会员卡
                 path: '/info/home_member',
                 component: Home_Member,
+            },
+            {
+                path: '/info/invoiceRecord',
+                component: InvoiceRecord,
+            },
+            {
+                path: '/info/payment',
+                component: Payment,
+            },
+            {
+                path: '/info/useCart',
+                component: UseCart,
+            },
+            {
+                path: '/info/vipDescription',
+                component: VipDescription,
             },
             {
                 // 服务中心
