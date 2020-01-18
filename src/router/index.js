@@ -16,9 +16,17 @@ import {
     Home_takeaway,
     Detils_list,
     Detils_info,
-    CitySearch
+    CitySearch,
+    Home_Info, // 我的信息页面
+    Home_Balance, // 我的余额 页面
+    Home_Point, // 我的积分 页面
+    Home_Shopping, // 积分商城
+    Home_Member, // 饿了么会员卡
+    Home_Serves, // 服务中心
+    Home_Download, // 下载饿了么APP
 
 } from './router' // 引入页面
+
 
 const route = [
     {
@@ -41,6 +49,41 @@ const route = [
             {
                 path: '/info/detils_info',
                 component: Detils_info,
+            },
+            {
+                // 我的信息页面
+                path: '/info/home_info',
+                component: Home_Info,
+            },
+            {
+                // 我的余额页面
+                path: '/info/home_balance',
+                component: Home_Balance,
+            },
+            {
+                // 我的积分页面
+                path: '/info/home_point',
+                component: Home_Point,
+            },
+            {
+                // 积分商城
+                path: '/info/home_shopping',
+                component: Home_Shopping,
+            },
+            {
+                // 饿了么会员卡
+                path: '/info/home_member',
+                component: Home_Member,
+            },
+            {
+                // 服务中心
+                path: '/info/home_serves',
+                component: Home_Serves,
+            },
+            {
+                // 下载饿了么APP
+                path: '/info/home_download',
+                component: Home_Download,
             },
             {
                 path: '/info',

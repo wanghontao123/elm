@@ -4,6 +4,7 @@
     display: flex;
     padding: 0.15rem .2rem;
     box-sizing: border-box;
+    align-items: center;
     font-size: .25rem;
     color: #000;
     background: #fff;
@@ -15,7 +16,16 @@
         }
     }
     div:last-child {
-        width: .2rem;
+        width: auto;
         color: #ccc;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        img {
+            width: .7rem;
+            height: .7rem;
+            border-radius: 50%;
+        }
     }
 }
