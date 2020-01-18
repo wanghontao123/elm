@@ -35,7 +35,7 @@ class extends Component {
     
     // 选项卡 切换
     toTab = ({ target ,target: { nodeName } }) => {
-        nodeName == 'SPAN' && (() => {
+        nodeName === 'SPAN' && (() => {
             const { toArray } = this
             // 内容 元素
             let contents = document.querySelectorAll(".shop_list_tab_content")
@@ -64,7 +64,7 @@ class extends Component {
 
     tabFood = ({ target }) => {
         let qid = ''
-        target.className == 'select_nav_title' && (() => {
+        target.className === 'select_nav_title' && (() => {
             const { toArray } = this
             let titles = document.querySelectorAll('.select_nav div')
             toArray(titles).map(res => {
@@ -153,7 +153,7 @@ class extends Component {
                             <div className="select_nav" onClick={tabFood}>
                                 {
                                     category_list.length > 1 && category_list.map((res, key) => {
-                                        return res.foods.length != 0 && (() => {
+                                        return res.foods.length !== 0 && (() => {
                                             return <div
                                                 id={res.id}
                                                 className={res.isActive}
@@ -167,7 +167,7 @@ class extends Component {
                             <div className="select_list">
                                 {
                                     category_list.length > 1 && category_list.map((res, key) => {
-                                        return res.foods.length != 0 && (() => {
+                                        return res.foods.length !== 0 && (() => {
                                             return <div
                                                 key={key}
                                                 id={`q${res.id}`}
@@ -191,7 +191,12 @@ class extends Component {
                                                                     <img src={`//elm.cangdu.org/img/${value.image_path}`} alt="" onError={witchImg} />
                                                                 </div>
                                                                 <div className="section_good_text">
-                                        <p>{value.name}{value.attributes.length > 0 && '1'}</p>
+                                                                    <p>
+                                                                        <span>{value.name}</span>
+                                                                        {
+                                                                            console.log(_.get(value.attributes, '[0].icon_name', ''))                
+                                                                        }
+                                                                    </p>            
                                                                     <p></p>
                                                                     <p></p>
                                                                     <p></p>

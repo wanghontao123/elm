@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { shoplist } from "@/actions/takeaway"
-import { CAROUSEL_LIST, SHOP_LIST, SHOP_INFO } from '@/constants/actionTypes'
+import { CAROUSEL_LIST, SHOP_LIST } from '@/constants/actionTypes'
 import { connect } from 'react-redux'
 import Swiper from 'react-id-swiper'
 
@@ -92,7 +92,7 @@ class extends PureComponent {
 
     render() {
         // console.log(this.props)
-        const { props: { shpList }, toInfo, test, SimpleSwiperWithParams } = this
+        const { props: { shpList }, toInfo, SimpleSwiperWithParams } = this
         // console.log(shpList)
         return (
             <div className="home_takeaway">
