@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Header_Top, } from '@@'
+import { Header_Top, List, } from '@@'
 import './goods_address.less'
 
 export default 
@@ -14,13 +14,22 @@ class extends Component {
         } } = this.props
         return (
             <div className="goods_address">
-               <Header_Top 
+                <Header_Top
                     title="编辑地址"
-               />
+                    right='编辑'
+                />
 
-               <div className='goods_address_content'>
-               Goods_address
-               </div>
+                <div className='goods_address_content'>
+                    {/* 列表 */}
+                    <div className='goods_address_content_lists'>
+                        <p>s</p>
+                        <p>2333</p>
+                    </div>
+                    <List
+                        title='新增地址'
+                        path='/info/goods_address_add'
+                    />
+                </div>
             </div>
         );
     }

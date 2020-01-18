@@ -2,15 +2,23 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { message } from 'antd'
 import { Header_Top, List, Buttons, Popup } from '@@'
+import { userInfo } from '@/actions/userInfo'
 import { signout } from '@/services'
 import './home_info.less'
 
 export default 
 @connect(state => ({
-    loginData: state.login.loginData,
-}), {})
+    loginData: state.userInfo.userInfo,
+}), {
+    userInfo,  // 用户信息
+})
 class extends Component {
 
+    componentDidMount() {
+        const user_id = localStorage.getItem('user_id')
+        this.props.userInfo({ user_id })
+    }
+    
     state = {
         status: false
     }
