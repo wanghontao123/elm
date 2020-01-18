@@ -33,19 +33,35 @@ class extends Component {
         }
         this.props.homeSearchs(obj)
         let arr = JSON.parse(localStorage.getItem('searchHistory')) || []
-        arr.push(val)
+        if (arr.length === 0) {
+            arr.push(val)
+        } else {
+            arr.map(v => {
+                if (v !== val) {
+                    arr.push(val)
+                }
+            })
+        }
         localStorage.setItem('searchHistory', JSON.stringify(arr))
     }
     //回到上一级
     back = () => {
         this.props.history.go('-1')
     }
-
+    //清除历史纪录
     clear = () => {
         localStorage.removeItem('searchHistory')
         this.setState({
             val: ''
         })
+    }
+    // 跳转详情
+    jump = item => {
+        this.props.history.push(`/info/detils_list/${item}`)
+    }
+    // 点击 输入框显示历史搜索的某条数据
+    backData = item => {
+        this.setState({ val: item })
     }
 
     render() {
@@ -64,6 +80,7 @@ class extends Component {
                         change={this.change}
                         btn={this.btn}
                         placeholder={'请输入商家或美食名称'}
+                        value={val}
                     />
                     {
                         homeSearch.length > 0 && val ?
@@ -71,7 +88,7 @@ class extends Component {
                                 <p>商家</p>
                                 {
                                     homeSearch.length > 0 && homeSearch.map((v, k) => (
-                                        <dl key={k}>
+                                        <dl key={k} onClick={() => this.jump(v.id)}>
                                             <dt><img src={`//elm.cangdu.org/img/${v.image_path}`} alt={v.name} /></dt>
                                             <dd>
                                                 <p>{v.name}</p>
@@ -82,22 +99,24 @@ class extends Component {
                                     ))
                                 }
                             </div>
-                            : ''
+                            : <div>
+                                {
+                                    sera ?
+                                        <div className='history'>
+                                            <p>搜索历史</p>
+                                            <div className='text'>
+                                                {
+                                                    sera.length > 0 && sera.map((v, k) => (
+                                                        <p key={k} onClick={() => this.backData(v)}>{v}</p>
+                                                    ))
+                                                }
+                                            </div>
+                                            <div className='clear' onClick={this.clear}>清空搜索历史</div>
+                                        </div> : ''
+                                }
+                            </div>
                     }
-                    {
-                        sera ?
-                            <div className='history'>
-                                <p>搜索历史</p>
-                                <div className='text'>
-                                    {
-                                        sera.length > 0 && sera.map((v, k) => (
-                                            <p key={k}>{v}</p>
-                                        ))
-                                    }
-                                </div>
-                                <div className='clear' onClick={this.clear}>清空搜索历史</div>
-                            </div> : ''
-                    }
+
                 </section>
             </div>
         )

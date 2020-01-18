@@ -36,7 +36,15 @@ class extends Component {
     //点击搜索到的跳转，存localStorage
     click = item => {
         let arr = JSON.parse(localStorage.getItem('placehHistory')) || []
-        arr.push(item)
+        if (arr.length === 0) {
+            arr.push(item)
+        } else {
+            arr.map(v => {
+                if (v.name !== item.name) {
+                    arr.push(item)
+                }
+            })
+        }
         localStorage.setItem('placehHistory', JSON.stringify(arr))
         const geohash = item.geohash
         this.props.history.push(`/?geohash=${geohash}`)
@@ -75,6 +83,7 @@ class extends Component {
                         change={this.change} // 可控组件
                         btn={this.btn} // 点击提交搜索
                         placeholder={'输入学校、商务楼、地址'} //placeholder提示文字
+                        value={val}
                     />
                     <SearchData
                         seachData={seachData} // 搜索匹配到的数据

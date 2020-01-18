@@ -3,6 +3,7 @@ import { requestPost, requestGet } from '@/utils/request'
 // 张慧敏 api
 export const seach = options => requestGet(api.search, options)
 export const homeSearch = options => requestGet(api.homeSearch, options)
+export const userInfo = options => requestGet(api.userInfo, options)
 // 李晓超 api
 export const login = options => requestPost(api.login, options)
 export const captchas = options => requestPost(api.captchas, options)  // 验证码
