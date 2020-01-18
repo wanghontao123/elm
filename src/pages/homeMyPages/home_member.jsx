@@ -1,25 +1,24 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Header_Top, } from '@@'
-import { requestGet } from '@/utils/request'
+import { userInfo } from '@/actions/userInfo'
 import './home_member.less'
 
 export default 
 @connect(state => ({
-    loginData: state.login.loginData,
-}), {})
+    userInfos: state.userInfo.userInfo
+}), {
+    userInfo
+})
 class extends Component {
-
-    componentDidMount() {
+    componentDidMount () {
         const id = localStorage.getItem('user_id')
-        requestGet(`v1/user?user_id${id}`)
-            .then(res => console.log(res))
+        this.props.userInfo({user_id: id})
     }
 
     render() {
-        const { loginData: {
-            username,  // 用户名
-        } } = this.props
+        const { username } = this.props.userInfos
+        console.log(this.props.userInfos)
         return (
             <div className="home_member">
                 <Header_Top
