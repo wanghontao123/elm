@@ -7,6 +7,7 @@ import { SHOP_INFO, SHOP_FOOD } from '@/constants/actionTypes'
 import _ from 'lodash'
 import './style.less'
 
+// 详情页
 export default @connect(state => {
     return {
         shpInfo: state.takeaway.shpInfo,
@@ -21,7 +22,6 @@ class extends Component {
         const { props: { shopsInfo, shopsFood, match: { params: { id } } } } = this
         shopsInfo(id)
         shopsFood(id)
-
     }
 
     toBack = () => {
@@ -50,7 +50,7 @@ class extends Component {
             })
             // 为当前点击的 span 添加 className
             target.className = "tab_active"
-
+            
             spans.map((res, key) => {
                 // 清空所有 内容 元素
                 toArray(contents)[key].style = 'display: none'
