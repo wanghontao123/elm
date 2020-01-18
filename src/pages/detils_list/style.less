@@ -211,7 +211,7 @@
                             background: #fff;
                             .select_list_section_good {
                                 width: 100%;
-                                padding: 0.1rem 0.06rem;
+                                padding: 0.16rem 0.1rem;
                                 box-sizing: border-box;
                                 display: flex;
                                 .section_good_img {
@@ -219,7 +219,6 @@
                                     margin-right: 0.1rem;
                                     img {
                                         width: 100%;
-                                        height: 100%;
                                         display: block;
                                     }
                                 }
@@ -230,7 +229,82 @@
                                     p {
                                         &:first-child {
                                             display: flex;
-                                            
+                                            .section_good_text_title {
+                                                width: 2rem;
+                                                white-space: nowrap;
+                                                text-overflow: ellipsis;
+                                                overflow: hidden;
+                                            }
+                                            .section_good_text_label {
+                                                flex: 1;
+                                                display: flex;
+                                                justify-content: flex-end;
+                                                b {
+                                                    transform: scale(0.8);
+                                                    padding: 0 0.06rem;
+                                                    box-sizing: border-box;
+                                                    font-size: 0.1rem;
+                                                    border: 1px solid #F07373;
+                                                    border-radius: 0.1rem;
+                                                    color: #F07373;
+                                                }
+                                            }
+                                        }
+                                        &:nth-child(2) {
+                                            width: 100%;
+                                            b {
+                                                color: #ccc;
+                                                font-size: 0.1rem;
+                                                transform: scale(0.8);
+                                            }
+                                        }
+                                        &:nth-child(3) {
+                                            width: 100%;
+                                            span {
+                                                margin-right: 0.1rem;
+                                                font-size: 0.1rem;
+                                                font-weight: 700;
+                                                transform: scale(0.8);
+                                            }
+                                        }
+                                        &:nth-child(4) {
+                                            width: 100%;
+                                            span {
+                                                font-size: 0.1rem;
+                                                padding: 0 0.06rem;
+                                                box-sizing: border-box;
+                                                border: 1px solid orange;
+                                                color: orange;
+                                                border-radius: 0.2rem;
+                                                transform: scale(0.8);
+                                            }
+                                        }
+                                        &:nth-child(5) {
+                                            width: 100%;
+                                            display: flex;
+                                            span {
+                                                &:nth-child(1) {
+                                                    color: #ccc;
+                                                    font-size: 0.1rem;
+                                                    font-weight: 700;
+                                                    b {
+                                                        font-size: 0.26rem;
+                                                        font-weight: 700;
+                                                        color: orange;
+                                                    }
+                                                }
+                                                &:nth-child(2) {
+                                                    flex: 1;
+                                                    display: flex;
+                                                    justify-content: flex-end;
+                                                    b {
+                                                        padding: 0 0.06rem;
+                                                        box-sizing: border-box;
+                                                        background: #3190e8;
+                                                        color: white;
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 }

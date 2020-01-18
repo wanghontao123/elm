@@ -33,7 +33,7 @@ class extends PureComponent {
 
     // 跳 详情
     toInfo = id => {
-        this.props.history.push(`/info/detils_list/1`)
+        this.props.history.push(`/info/detils_list/${id}`)
     }
 
     // 跳 分类
