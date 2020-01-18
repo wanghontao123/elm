@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
+// redux
 import { connect } from 'react-redux'
-import { Icon } from 'antd'
 import { shoplist } from "@/actions/takeaway"
-import { hump } from '@/utils/string'
 import { SHOP_INFO, SHOP_FOOD } from '@/constants/actionTypes'
+// 插件
+import LazyLoad from 'react-lazyload'
+// 组件
+import { Icon } from 'antd'
+// 公共方法
+import { hump } from '@/utils/string'
 import _ from 'lodash'
+// 样式表
 import './style.less'
 
 // 详情页
@@ -105,10 +111,14 @@ class extends Component {
                     <div className="shop_list_group">
                         <div className="shop_list_view">
                             {/* 模糊 背景 */}
-                            <img className="image_filter" src={`//elm.cangdu.org/img/${image_path}`} alt="" />
+                            <LazyLoad overflow>
+                                <img className="image_filter" src={`//elm.cangdu.org/img/${image_path}`} alt="" />
+                            </LazyLoad>
                             {/* 商铺 头像 */}
                             <div className="shop_list_image">
-                                <img src={`//elm.cangdu.org/img/${image_path}`} alt="" />
+                                <LazyLoad overflow>
+                                    <img src={`//elm.cangdu.org/img/${image_path}`} alt="" />
+                                </LazyLoad>
                             </div>
                             {/* 商铺 信息 */}
                             <div className="shop_list_info">
@@ -188,7 +198,9 @@ class extends Component {
                                                                 {console.log(value)}
 
                                                                 <div className="section_good_img">
-                                                                    <img src={`//elm.cangdu.org/img/${value.image_path}`} alt="" onError={witchImg} />
+                                                                    <LazyLoad overflow>
+                                                                        <img src={`//elm.cangdu.org/img/${value.image_path}`} alt="" onError={witchImg} />
+                                                                    </LazyLoad>
                                                                 </div>
                                                                 <div className="section_good_text">
                                                                     <p>

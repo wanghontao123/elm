@@ -29,3 +29,7 @@ export const Goods_Address = loader(() => import('@/pages/homeMyPages/goods_addr
 export const Goods_Address_Add = loader(() => import('@/pages/homeMyPages/goods_address_add.jsx')) // 新增地址
 export const Goods_Address_Search = loader(() => import('@/pages/homeMyPages/goods_address_search.jsx')) // 搜索地址
 
+export const InvoiceRecord = loader(() => import('@/pages/homeMemBer/invoiceRecord.jsx')) // 饿了么会员卡 我的优惠
+export const Payment = loader(() => import('@/pages/homeMemBer/payment.jsx')) // 饿了么会员卡 在线支付
+export const UseCart = loader(() => import('@/pages/homeMemBer/useCart.jsx')) // 饿了么会员卡 兑换会员
+export const VipDescription = loader(() => import('@/pages/homeMemBer/vipDescription.jsx')) // 饿了么会员卡 购买记录

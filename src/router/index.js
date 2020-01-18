@@ -27,6 +27,10 @@ import {
     SetUserName, // 修改用户名
     SetPassWord, // 修改密码
     Goods_Address, // 编辑地址
+    InvoiceRecord,
+    Payment,
+    UseCart,
+    VipDescription,
     Goods_Address_Add, // 新增地址
     Goods_Address_Search, // 搜索地址
 
@@ -79,6 +83,22 @@ const route = [
                 // 饿了么会员卡
                 path: '/info/home_member',
                 component: Home_Member,
+            },
+            {
+                path: '/info/invoiceRecord',
+                component: InvoiceRecord,
+            },
+            {
+                path: '/info/payment',
+                component: Payment,
+            },
+            {
+                path: '/info/useCart',
+                component: UseCart,
+            },
+            {
+                path: '/info/vipDescription',
+                component: VipDescription,
             },
             {
                 // 服务中心

@@ -16,6 +16,10 @@ class extends Component {
         this.props.userInfo({ user_id: id })
     }
 
+    vipSpeak = () => {
+        this.props.history.push('/info/vipDescription')
+    }
+
     render() {
         const { username } = this.props.userInfos
         const data = [
@@ -41,7 +45,7 @@ class extends Component {
                 />
                 <p>为账户 <b>{username}</b> 购买会员</p>
                 <div className='vip-services'>
-                    <div className='vip-top'>
+                    <div className='vip-top' onClick={this.vipSpeak}>
                         <p>会员特权</p>
                         <p></p>
                         <p>会员说明 ></p>

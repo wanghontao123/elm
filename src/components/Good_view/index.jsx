@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import LazyLoad from 'react-lazyload'
 import { Rate } from 'antd'
 import './style.less'
 
@@ -28,7 +29,9 @@ export default class extends PureComponent {
         return (
             <div className="good-view" onClick={() => toInfo(id)}>
                 <div className="good-pic">
-                    <img src={`//elm.cangdu.org/img/${image_path}`} alt=""/>
+                    <LazyLoad overflow>
+                        <img src={`//elm.cangdu.org/img/${image_path}`} alt=""/>
+                    </LazyLoad>
                 </div>
                 <div className="good-group">
                     <div className="good-info">
