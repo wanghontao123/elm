@@ -4,10 +4,9 @@ import { connect } from 'react-redux'
 import { shoplist } from "@/actions/takeaway"
 import { CAROUSEL_LIST, SHOP_LIST, } from '@/constants/actionTypes'
 import Swiper from 'react-id-swiper'
-import Header from '@@/Header'
 import 'swiper/css/swiper.css'
 import { hump } from '@/utils/string'
-import { Good_view } from '@@'
+import { Good_view, Header } from '@@'
 import './style.less'
 
 export default @connect(state => {
