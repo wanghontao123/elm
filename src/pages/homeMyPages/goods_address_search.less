@@ -1,0 +1,69 @@
+.goods_address_search {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .goods_address_search_content::-webkit-scrollbar{width: 0;}
+   .goods_address_search_content {
+       flex: 1;
+       overflow: auto;
+
+       .section-input {
+           width: 100%;
+           display: flex;
+           padding: .1rem;
+           box-sizing: border-box;
+        
+           input {
+               padding: .2rem;
+               height: .6rem;
+           }
+
+           button {
+               margin: 0 .1rem;
+               box-sizing: border-box;
+               height: .6rem;
+           }
+       }
+
+       .goods_address_search_content_Warning {
+           width: 100%;
+           height: auto;
+           background: #fff6e4;
+           color: #ff883f;
+           text-align: center;
+           padding: .05rem;
+           box-sizing: border-box;
+       }
+
+       .goods_address_search_content_lists {
+            width: 100%;
+            height: auto;
+            div {
+                padding: .2rem;
+                box-sizing: border-box;
+            }
+            .div_list {
+                border-bottom: 1px solid #ccc;
+            }
+       }
+
+       .goods_address_search_content_null {
+           width: 100%;
+           height: auto;
+           margin: 2rem 0;
+
+           p {
+                width: 100%;
+                text-align: center;
+                color: #969696;
+                font-size: .25rem;
+                padding: .05rem;
+           }
+       }
+
+
+   }
+    
+}

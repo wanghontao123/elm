@@ -25,8 +25,10 @@ import {
     Home_Serves, // 服务中心
     Home_Download, // 下载饿了么APP
     SetUserName, // 修改用户名
+    SetPassWord, // 修改密码
     Goods_Address, // 编辑地址
     Goods_Address_Add, // 新增地址
+    Goods_Address_Search, // 搜索地址
 
 } from './router' // 引入页面
 
@@ -94,6 +96,11 @@ const route = [
                 component: SetUserName,
             },
             {
+                // 修改用户名
+                path: '/info/setpassword',
+                component: SetPassWord,
+            },
+            {
                 // 编辑地址
                 path: '/info/goods_address',
                 component: Goods_Address,
@@ -102,6 +109,11 @@ const route = [
                 // 新增地址
                 path: '/info/goods_address_add',
                 component: Goods_Address_Add,
+            },
+            {
+                // 新增地址
+                path: '/info/goods_address_search',
+                component: Goods_Address_Search,
             },
             {
                 path: '/info',

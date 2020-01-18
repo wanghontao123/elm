@@ -6,6 +6,7 @@
 
    .goods_address_content {
        flex: 1;
+       overflow: auto;
 
        .div {
            width: 100%;
@@ -17,6 +18,15 @@
            box-sizing: border-box;
            background: #fff8c3;
            border-bottom: 1px solid #d9d9d9;
+           position: relative;
+           .none {
+               position: absolute;
+               right: .25rem;
+               top: 32%;
+               .iconfont {
+                   font-size: .23rem;
+               }
+           }
        }
    }
     

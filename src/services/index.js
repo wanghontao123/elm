@@ -6,8 +6,12 @@ export const homeSearch = options => requestGet(api.homeSearch, options)
 export const userInfos = options => requestGet(api.userInfo, options)
 // 李晓超 api
 export const login = options => requestPost(api.login, options)
+export const changepassword = options => requestPost(api.changepassword, options)
 export const captchas = options => requestPost(api.captchas, options)  // 验证码
 export const signout = () => requestGet(api.signout)  // 退出
+export const addAddresses = (user, options) => requestPost(`/v1/users/${user}/addresses`, options)  // 增加收货地址
+export const addressesList = (user) => requestGet(`/v1/users/${user}/addresses`)  // 收货列表
+
 
 // 王红涛 api
 

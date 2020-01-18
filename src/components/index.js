@@ -13,6 +13,7 @@ import SearchHistoryList from '@@/SearchHistoryList'
 import SearchHistory from '@@/SearchHistory'
 import CardStatus from '@@/CardStatus'
 import Popup from '@@/Popup'
+import Inputs from '@@/Inputs'
 
 export {
     Loading,
@@ -30,4 +31,5 @@ export {
     SearchHistory,
     CardStatus,
     Popup,
+    Inputs,
 }
