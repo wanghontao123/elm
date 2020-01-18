@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Header_Top, } from '@@'
 import './home_serves.less'
 import { Icon } from 'antd'
-
+import List from '@@/List'
 export default 
 @connect(state => ({
     loginData: state.login.loginData,
@@ -114,6 +114,7 @@ class extends Component {
                     title="服务中心"
                />
                <div className="section">
+                   
                    <div className="sect-service">
                        <dl>
                            <dt>
@@ -132,18 +133,11 @@ class extends Component {
                    </div>
                    <div className="sect-title">
                        <p>热门问题</p>
-                       <ul>
-                           {
-                               list.map((v, k) => (
-                                   <li key={k}>
-                                        <span>{v.title}</span>
-                                        <span>
-                                            <Icon type="right" />
-                                        </span>
-                                   </li>
-                               ))
-                           }
-                       </ul>
+                        {
+                            list.map((v, k) => (
+                                <List  title={v.title}/>
+                            ))
+                        }
                    </div>
                </div>
             </div>
