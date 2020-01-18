@@ -185,22 +185,50 @@ class extends Component {
                                                                 key={index}
                                                                 className="select_list_section_good"
                                                             >
-                                                                {/* {console.log(value)} */}
+                                                                {console.log(value)}
 
                                                                 <div className="section_good_img">
                                                                     <img src={`//elm.cangdu.org/img/${value.image_path}`} alt="" onError={witchImg} />
                                                                 </div>
                                                                 <div className="section_good_text">
                                                                     <p>
-                                                                        <span>{value.name}</span>
+                                                                        <span className="section_good_text_title">{value.name}</span>
                                                                         {
-                                                                            console.log(_.get(value.attributes, '[0].icon_name', ''))                
+                                                                            _.get(value.attributes, '[0].icon_name', '') === '招牌' ? 
+                                                                            <span className="section_good_text_label"><b>招牌</b></span>
+                                                                            : null
                                                                         }
                                                                     </p>            
-                                                                    <p></p>
-                                                                    <p></p>
-                                                                    <p></p>
-                                                                    <p></p>
+                                                                    <p>
+                                                                        <b>{value.description}</b>
+                                                                    </p>
+                                                                    <p>
+                                                                        <span>月售{value.month_sales}份</span>
+                                                                        <span>好评率{value.satisfy_rate}%</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <span>
+                                                                            {
+                                                                                _.get(value.activity, 'image_text', '')
+                                                                            }
+                                                                        </span>
+                                                                    </p>
+                                                                    <p>
+                                                                        {
+                                                                            value.specifications.length > 0 ?
+                                                                            <span> <b>￥{value.specfoods[0].price}</b> 起</span> :
+                                                                            <span><b>￥{value.specfoods[0].price}</b></span>
+                                                                        }
+                                                                        {
+                                                                            value.specifications.length > 0 ?
+                                                                            <span>
+                                                                                <b style={{borderRadius: '0.1rem'}}>选规格</b>
+                                                                            </span> :
+                                                                            <span>
+                                                                                <b style={{borderRadius: '50%'}}><Icon type='plus'/></b>
+                                                                            </span>
+                                                                        }
+                                                                    </p>
                                                                 </div>
                                                             </div>
                                                         ))
