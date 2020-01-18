@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import _ from 'loadsh'
 import { connect } from 'react-redux'
 import { homeSearchs } from '@/actions/homeSearch'
-import { Search, Header, SearchHistoryList } from '@@'
+import { Search, Header, } from '@@'
 import './style.less'
 
 export default @connect(state => ({
@@ -70,7 +70,7 @@ class extends Component {
                             <div className='home-search-good'>
                                 <p>商家</p>
                                 {
-                                    homeSearch.map((v, k) => (
+                                    homeSearch.length > 0 && homeSearch.map((v, k) => (
                                         <dl key={k}>
                                             <dt><img src={`//elm.cangdu.org/img/${v.image_path}`} alt={v.name} /></dt>
                                             <dd>
@@ -85,7 +85,7 @@ class extends Component {
                             : ''
                     }
                     {
-                        sera.length ?
+                        sera ?
                             <div className='history'>
                                 <p>搜索历史</p>
                                 <div className='text'>

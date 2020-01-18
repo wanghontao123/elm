@@ -1,6 +1,5 @@
 import axios from 'axios'
 import _ from 'loadsh'
-import qs from 'qs'
 import { loading } from '@/actions/global'  // 获取 
 
 let cancelToken = axios.CancelToken
