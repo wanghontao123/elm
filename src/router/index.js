@@ -26,6 +26,7 @@ import {
     Home_Download, // 下载饿了么APP
     SetUserName, // 修改用户名
     Goods_Address, // 编辑地址
+    Goods_Address_Add, // 新增地址
 
 } from './router' // 引入页面
 
@@ -96,6 +97,11 @@ const route = [
                 // 编辑地址
                 path: '/info/goods_address',
                 component: Goods_Address,
+            },
+            {
+                // 新增地址
+                path: '/info/goods_address_add',
+                component: Goods_Address_Add,
             },
             {
                 path: '/info',

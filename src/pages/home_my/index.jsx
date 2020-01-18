@@ -1,14 +1,21 @@
 import React, { Component } from 'react'
-import { Header_Top, List } from '@@'
 import { connect } from 'react-redux'
+import { userInfo } from '@/actions/userInfo'
+import { Header_Top, List } from '@@'
 import './style.less'
 
 export default 
 @connect(state => ({
-    loginData: state.login.loginData,
-}), {})
+    loginData: state.userInfo.userInfo,
+}), {
+    userInfo,  // 用户信息
+})
 class extends Component {
 
+    componentDidMount() {
+        const user_id = localStorage.getItem('user_id')
+        this.props.userInfo({user_id})
+    }
 
     // 点击 判断是否登录状态
     isLogin = () => {

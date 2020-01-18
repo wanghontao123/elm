@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Switch, message } from 'antd';
 import { LOGIN_POST, CAPTCHAS_POST, } from '@/constants/actionTypes'
 import { loginFn } from '@/actions/login'
+import { userInfo } from '@/actions/userInfo'
 import { hump } from '@/utils/string'
 import { Header_Top, Buttons } from '@@'
 import './styles.less'
@@ -14,6 +15,7 @@ export default @connect(state => {
 }, {
     loginFn: loginFn[hump(LOGIN_POST)],
     captchas: loginFn[hump(CAPTCHAS_POST)],
+    userInfo,
 })
 class extends React.PureComponent {
     constructor(props) {
