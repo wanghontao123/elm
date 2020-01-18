@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Header_Top, } from '@@'
 import './home_serves.less'
+import { Icon } from 'antd'
 
 export default 
 @connect(state => ({
@@ -106,6 +107,7 @@ class extends Component {
         const { loginData: {
             username,  // 用户名
         } } = this.props
+        const { list } = this.state
         return (
             <div className="home_serves">
                <Header_Top 
@@ -114,9 +116,34 @@ class extends Component {
                <div className="section">
                    <div className="sect-service">
                        <dl>
-                           <dt></dt>
-                           <dd></dd>
+                           <dt>
+                                <Icon 
+                                    type="customer-service"     theme="filled" 
+                                />
+                           </dt>
+                           <dd>在线客服</dd>
                        </dl>
+                       <dl>
+                           <dt>
+                               <Icon type="phone" theme="twoTone" />
+                            </dt>
+                           <dd>在线客服</dd>
+                       </dl>
+                   </div>
+                   <div className="sect-title">
+                       <p>热门问题</p>
+                       <ul>
+                           {
+                               list.map((v, k) => (
+                                   <li key={k}>
+                                        <span>{v.title}</span>
+                                        <span>
+                                            <Icon type="right" />
+                                        </span>
+                                   </li>
+                               ))
+                           }
+                       </ul>
                    </div>
                </div>
             </div>
