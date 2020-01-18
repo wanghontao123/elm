@@ -23,6 +23,7 @@
            padding: 0.2rem 0;
            box-sizing: border-box;
            justify-content: space-between;
+           border-bottom: 1px solid #f5f5f5;
            p:first-child{
                width: 20%;
                font-size: 0.28rem;
@@ -37,6 +38,101 @@
                flex: 1;
            }
        }
+       .vip-mid{
+           width: 100%;
+          dl{
+            width: 100%;
+            display: flex;
+            padding: 0.2rem 0;
+            box-sizing: border-box;
+            border-bottom: 1px solid #f5f5f5;
+            dt{
+                width: 20%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img{
+                    width: 60%;
+                    height: auto;
+                    display: block;
+                }
+            }
+            dd{
+                p:first-child{
+                    font-size: 0.28rem;
+                }
+                p:nth-child(2),p:last-child{
+                    font-size: 0.2rem;
+                    color: #ccc;
+                }
+            }
+          }
+       }
    }
-    
+   .vip-bot{
+        margin-top: 0.2rem;  
+        background: white;
+        padding-left: 0.2rem;
+        box-sizing: border-box;
+        >p{
+            padding: 0.15rem 0;
+            box-sizing: border-box;
+            border-bottom: 1px solid #f5f5f5;
+            font-size: 0.28rem;
+        }
+        >div{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.15rem 0;
+            box-sizing: border-box;
+            p:first-child{
+                width: 40%;
+                font-size: 0.28rem;
+                span{
+                    color: red;
+                    font-weight: bolder;
+                }
+            }
+            p:last-child{
+                width: 25%;
+                font-size: 0.25rem;
+                color: red;
+                button{
+                    border: 0;
+                    background: white;
+                    border: 1px solid red;
+                    padding: 0.05rem 0.2rem;
+                    box-sizing: border-box;
+                    border-radius: 0.1rem;
+                }
+            }
+            p:nth-child(2){
+                flex: 1;
+            }
+        }
+    }
+    .vip-rule{
+        margin-top: 0.2rem;
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.15rem 0.2rem;
+        box-sizing: border-box;
+        p:first-child{
+            width: 40%;
+            font-size: 0.28rem;
+        }
+        p:last-child{
+            width: 30%;
+            font-size: 0.25rem;
+            text-align: right;
+            color: #c5c5c5;
+        }
+        p:nth-child(2){
+            flex: 1;
+        }
+    }
 }

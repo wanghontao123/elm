@@ -25,4 +25,5 @@ export const Home_Serves = loader(() => import('@/pages/homeMyPages/home_serves.
 export const Home_Download = loader(() => import('@/pages/homeMyPages/home_download.jsx')) // 下载饿了么APP
 export const SetUserName = loader(() => import('@/pages/homeMyPages/setUserName.jsx')) // 修改用户名
 export const Goods_Address = loader(() => import('@/pages/homeMyPages/goods_address.jsx')) // 编辑地址
+export const Goods_Address_Add = loader(() => import('@/pages/homeMyPages/goods_address_add.jsx')) // 新增地址
 
