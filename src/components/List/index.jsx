@@ -1,11 +1,18 @@
 import React, { PureComponent } from 'react'
+import { withRouter } from 'react-router-dom'
 import './style.less'
 
-export default class extends PureComponent {
+export default @withRouter
+class extends PureComponent {
+
+    // 点击跳转 path
+    jump = items => {
+        this.props.history.push(items)        
+    }
     render() {
-        const { icon, title, right, rightContent } = this.props
+        const { icon, title, right, rightContent, path } = this.props
         return (
-            <div className="component_list" onClick={this.props.onClick}>
+            <div className="component_list" onClick={() => this.jump(path)}>
                 <div>
                     {
                         icon ?
