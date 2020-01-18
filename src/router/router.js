@@ -23,4 +23,6 @@ export const Home_Shopping = loader(() => import('@/pages/homeMyPages/home_shopp
 export const Home_Member = loader(() => import('@/pages/homeMyPages/home_member.jsx')) // 饿了么会员卡
 export const Home_Serves = loader(() => import('@/pages/homeMyPages/home_serves.jsx')) // 服务中心
 export const Home_Download = loader(() => import('@/pages/homeMyPages/home_download.jsx')) // 下载饿了么APP
+export const SetUserName = loader(() => import('@/pages/homeMyPages/setUserName.jsx')) // 修改用户名
+export const Goods_Address = loader(() => import('@/pages/homeMyPages/goods_address.jsx')) // 编辑地址
 

@@ -24,6 +24,8 @@ import {
     Home_Member, // 饿了么会员卡
     Home_Serves, // 服务中心
     Home_Download, // 下载饿了么APP
+    SetUserName, // 修改用户名
+    Goods_Address, // 编辑地址
 
 } from './router' // 引入页面
 
@@ -84,6 +86,16 @@ const route = [
                 // 下载饿了么APP
                 path: '/info/home_download',
                 component: Home_Download,
+            },
+            {
+                // 修改用户名
+                path: '/info/setusername',
+                component: SetUserName,
+            },
+            {
+                // 编辑地址
+                path: '/info/goods_address',
+                component: Goods_Address,
             },
             {
                 path: '/info',

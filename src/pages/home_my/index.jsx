@@ -10,10 +10,6 @@ export default
 class extends Component {
 
 
-    // 点击list 列表跳转
-    jump = items => {
-        this.props.history.push(items.path)
-    }
     // 点击 判断是否登录状态
     isLogin = () => {
         const { history } = this.props
@@ -129,7 +125,7 @@ class extends Component {
                                             color: v.color,
                                         }}
                                         title={v.title}
-                                        onClick={() => this.jump(v)}
+                                        path={v.path}
                                     />
                                 )
                             })

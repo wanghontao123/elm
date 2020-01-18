@@ -7,6 +7,7 @@ export const userInfos = options => requestGet(api.userInfo, options)
 // 李晓超 api
 export const login = options => requestPost(api.login, options)
 export const captchas = options => requestPost(api.captchas, options)  // 验证码
+export const signout = () => requestGet(api.signout)  // 退出
 
 // 王红涛 api
 
