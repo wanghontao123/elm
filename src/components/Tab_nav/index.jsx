@@ -38,10 +38,11 @@ export default class extends PureComponent {
     render() {
         const { toTab, props: {
             txt = [
-                { active: true, title: 'tab1', cname: 'tab1', view: 'flex' }, 
-                { active: false, title: 'tab2', cname: 'tab2', view: 'none' }
+                { id: 1, active: true, title: 'tab1', cname: 'tab1', view: 'flex' }, 
+                { id: 2, active: false, title: 'tab2', cname: 'tab2', view: 'none' }
             ],
-            children
+            children,
+            onChangeView
         } } = this
         // console.log(children)
         return (
@@ -50,9 +51,17 @@ export default class extends PureComponent {
                 <div className="shop_list_tab_nav" onClick={toTab}>
                     {
                         txt.map((res, key) => (
-                            <div className="btn_tab" key={key}>
+                            <div 
+                                className="btn_tab" 
+                                key={key} 
+                            >
                                 {/* active 选中的 tab */}
-                                <span className={cs({ tab_active: res.active })}>{res.title}</span>
+                                <span 
+                                    className={cs({ tab_active: res.active })}
+                                    onClick={() => onChangeView(res.id)}
+                                >
+                                    {res.title}
+                                </span>
                             </div>
                         ))
                     }
@@ -67,9 +76,7 @@ export default class extends PureComponent {
                             style={{display: res.view}}
                         >
                             {
-                                children.map(res => {
-                                    // console.log(res)
-                                })
+                                children
                             }
                         </div>
                     ))

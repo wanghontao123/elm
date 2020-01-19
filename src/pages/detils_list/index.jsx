@@ -7,7 +7,6 @@ import { SHOP_INFO, SHOP_FOOD } from '@/constants/actionTypes'
 import LazyLoad from 'react-lazyload'
 // 组件
 import { Icon } from 'antd'
-import { Tab_nav } from '@@'
 // 公共方法
 import { hump } from '@/utils/string'
 import _ from 'lodash'
@@ -150,15 +149,128 @@ class extends Component {
                     </div>
                 </div>
                 {/* 选项卡 */}
-                <Tab_nav
-                    txt={[
-                        { active: true, title: '商品', cname: 'content_products', view: 'flex' }, 
-                        { active: false, title: '评价', cname: 'content_assess', view: 'none' }
-                    ]}
-                >
-                    <div className="content_products">1</div>
-                    <div className="content_assess">2</div>
-                </Tab_nav>
+                <div className="shop_list_tab">
+                    {/* 选择区 */}
+                    <div className="shop_list_tab_nav" onClick={toTab}>
+                        <div className="btn_tab"><span className="tab_active">商品</span></div>
+                        <div className="btn_tab"><span>评价</span></div>
+                    </div>
+                    {/* 内容区 */}
+                    <div className="shop_list_tab_content content_products" style={{ display: "flex" }}>
+                        <div className="products_select">
+                            {/* 索引 导航 */}
+                            <div className="select_nav" onClick={tabFood}>
+                                {
+                                    category_list.length > 1 && category_list.map((res, key) => {
+                                        return res.foods.length !== 0 && (() => {
+                                            return <div
+                                                id={res.id}
+                                                className={res.isActive}
+                                                key={key}
+                                            >
+                                                {res.name}</div>
+                                        })()
+                                    })
+                                }
+                            </div>
+                            <div className="select_list">
+                                {
+                                    category_list.length > 1 && category_list.map((res, key) => {
+                                        return res.foods.length !== 0 && (() => {
+                                            return <div
+                                                key={key}
+                                                id={`q${res.id}`}
+                                                className="select_list_region"
+                                            >
+                                                <div className="select_list_header">
+                                                    <div className="select_list_header_title">{res.name}</div>
+                                                    <div className="select_list_header_info">{res.description}</div>
+                                                    <div className="select_list_header_move">· · ·</div>
+                                                </div>
+                                                <div className="select_list_section">
+                                                    {
+                                                        res.foods.length > 0 && res.foods.map((value, index) => (
+                                                            <div
+                                                                key={index}
+                                                                className="select_list_section_good"
+                                                            >
+                                                                {console.log(value)}
+
+                                                                <div className="section_good_img">
+                                                                    <LazyLoad overflow>
+                                                                        <img src={`//elm.cangdu.org/img/${value.image_path}`} alt="" onError={witchImg} />
+                                                                    </LazyLoad>
+                                                                </div>
+                                                                <div className="section_good_text">
+                                                                    <p>
+                                                                        <span className="section_good_text_title">{value.name}</span>
+                                                                        {
+                                                                            _.get(value.attributes, '[0].icon_name', '') === '招牌' ?
+                                                                                <span className="section_good_text_label"><b>招牌</b></span>
+                                                                                : null
+                                                                        }
+                                                                    </p>
+                                                                    <p>
+                                                                        <b>{value.description}</b>
+                                                                    </p>
+                                                                    <p>
+                                                                        <span>月售{value.month_sales}份</span>
+                                                                        <span>好评率{value.satisfy_rate}%</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <span>
+                                                                            {
+                                                                                _.get(value.activity, 'image_text', '')
+                                                                            }
+                                                                        </span>
+                                                                    </p>
+                                                                    <p>
+                                                                        {
+                                                                            value.specifications.length > 0 ?
+                                                                                <span> <b>￥{value.specfoods[0].price}</b> 起</span> :
+                                                                                <span><b>￥{value.specfoods[0].price}</b></span>
+                                                                        }
+                                                                        {
+                                                                            value.specifications.length > 0 ?
+                                                                                <span>
+                                                                                    <b style={{ borderRadius: '0.1rem' }}>选规格</b>
+                                                                                </span> :
+                                                                                <span>
+                                                                                    <b style={{ borderRadius: '50%' }}><Icon type='plus' /></b>
+                                                                                </span>
+                                                                        }
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        ))
+                                                    }
+                                                </div>
+                                            </div>
+                                        })()
+                                    })
+                                }
+                            </div>
+                        </div>
+                        <div className="products_buy">
+                            <div className="buy_car">
+                                <span>
+                                    <Icon type="shopping-cart" />
+                                </span>
+                            </div>
+                            <div className="buy_bill">
+                                <div className="buy_view_price">
+                                    <div>￥20.00</div>
+                                    <div>配送费￥5</div>
+                                </div>
+                                {/* 4CD964 */}
+                                <div className="buy_submit" style={{ background: '#535356' }}>还差20起送</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="shop_list_tab_content content_assess">
+                        <div className=""></div>
+                    </div>
+                </div>
             </div>
         );
     }
