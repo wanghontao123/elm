@@ -41,8 +41,7 @@ export default class extends PureComponent {
                 { id: 1, active: true, title: 'tab1', cname: 'tab1', view: 'flex' }, 
                 { id: 2, active: false, title: 'tab2', cname: 'tab2', view: 'none' }
             ],
-            children,
-            onChangeView
+            children
         } } = this
         // console.log(children)
         return (
@@ -58,7 +57,6 @@ export default class extends PureComponent {
                                 {/* active 选中的 tab */}
                                 <span 
                                     className={cs({ tab_active: res.active })}
-                                    onClick={() => onChangeView(res.id)}
                                 >
                                     {res.title}
                                 </span>
