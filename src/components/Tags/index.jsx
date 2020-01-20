@@ -5,7 +5,7 @@ export default class extends PureComponent {
         return Array.prototype.slice.call(nodes)
     }
     toTags = ({ target }, cName) => {
-        (target.className === "tagchild" && JSON.parse(target.getAttribute('isclick'))) && (() => {
+        target.className === "tagchild" && (() => {
             const { toArray } = this
             let domlist = document.querySelectorAll(`.${cName} div`)
             toArray(domlist).map(res => {
