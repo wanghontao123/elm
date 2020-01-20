@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PureComponent } from 'react';
 // redux
 import { connect } from 'react-redux'
 import { shoplist } from "@/actions/takeaway"
@@ -6,7 +6,8 @@ import { SHOP_INFO, SHOP_FOOD } from '@/constants/actionTypes'
 // 插件
 import LazyLoad from 'react-lazyload'
 // 组件
-import { Icon } from 'antd'
+import { Icon, Rate } from 'antd'
+import { Tags } from '@@'
 // 公共方法
 import { hump } from '@/utils/string'
 import _ from 'lodash'
@@ -88,16 +89,106 @@ class extends Component {
     }
 
     render() {
+        /* 
+            shpInfo 商铺 详情 信息
+            category_list 商铺 商品 列表
+            toBack 返回上一级
+            toTab 选项卡切换
+            witchImg 图片监听
+            tabFood 索引导航
+        */
         const { props: { shpInfo, shpFood }, toBack, toTab, tabFood, witchImg } = this
-        const { image_path, name, piecewise_agent_fee, promotion_info, activities = [] } = shpInfo
+        const { image_path, name, piecewise_agent_fee, promotion_info, activities = [], rating } = shpInfo
         const { category_list = [] } = shpFood
+
         category_list.map(res => {
             res.isActive = 'select_nav_title'
         })
         category_list.length > 0 && (() => {
             category_list[0].isActive = 'select_nav_title_active'
         })()
-        // console.log(category_list)
+        console.log(shpInfo)
+
+        // 评论区
+        const assess = [
+            {
+                id: 1,
+                title: '全部',
+                num: 473,
+                isclick: 'true',
+                cname: 'tagchild_active'
+            },
+            {
+                id: 2,
+                title: '满意',
+                num: 453,
+                isclick: 'true',
+                cname: 'tagchild'
+            },
+            {
+                id: 3,
+                title: '不满意',
+                num: 20,
+                isclick: 'false',
+                cname: 'tagchild'
+            },
+            {
+                id: 4,
+                title: '有图',
+                num: 2,
+                isclick: 'true',
+                cname: 'tagchild'
+            },
+            {
+                id: 5,
+                title: '味道好',
+                num: 47,
+                isclick: 'true',
+                cname: 'tagchild'
+            },
+            {
+                id: 6,
+                title: '送货快',
+                num: 32,
+                isclick: 'true',
+                cname: 'tagchild'
+            },
+            {
+                id: 7,
+                title: '分量足',
+                num: 18,
+                isclick: 'true',
+                cname: 'tagchild'
+            },
+            {
+                id: 8,
+                title: '包装精美',
+                num: 15,
+                isclick: 'true',
+                cname: 'tagchild'
+            },
+            {
+                id: 9,
+                title: '干净卫生',
+                num: 15,
+                isclick: 'true',
+                cname: 'tagchild'
+            },
+            {
+                id: 10,
+                title: '食材新鲜',
+                num: 15,
+                isclick: 'true',
+                cname: 'tagchild'
+            },
+            {
+                id: 11,
+                title: '服务不错',
+                num: 11,
+                isclick: 'true',
+                cname: 'tagchild'
+            },
+        ]
         return (
             <div className="details_list">
                 {/* 返回 上一级 */}
@@ -142,7 +233,7 @@ class extends Component {
                                 <span>{activities[0].description}(APP专享)</span>
                                 <span>
                                     {activities.length}个活动
-                        <Icon type="right" />
+                                    <Icon type="right" />
                                 </span>
                             </div>
                         }
@@ -194,8 +285,7 @@ class extends Component {
                                                                 key={index}
                                                                 className="select_list_section_good"
                                                             >
-                                                                {console.log(value)}
-
+                                                                {/* {console.log(value)} */}
                                                                 <div className="section_good_img">
                                                                     <LazyLoad overflow>
                                                                         <img src={`//elm.cangdu.org/img/${value.image_path}`} alt="" onError={witchImg} />
@@ -268,7 +358,42 @@ class extends Component {
                         </div>
                     </div>
                     <div className="shop_list_tab_content content_assess">
-                        <div className=""></div>
+                        <div className="assess_mack">
+                            <div className="assess_header">
+                                <hgroup>
+                                    <div>{rating}</div>
+                                    <div>综合评价</div>
+                                    <div>高于周边商家76.9%</div>
+                                </hgroup>
+                                <hgroup>
+                                    <div>
+                                        <span>服务态度</span>
+                                        <span>
+                                            <Rate className="star-size" allowHalf defaultValue={4.5} />
+                                            <b>4.7</b>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span>菜品评价</span>
+                                        <span>
+                                            <Rate className="star-size" allowHalf defaultValue={4.5} />
+                                            <b>4.8</b>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span>送达时间</span>
+                                        <span><em>分钟</em></span>
+                                    </div>
+                                </hgroup>
+                            </div>
+                            <div className="assess_tag">
+                                <Tags
+                                    list={assess} 
+                                    className="tags_list"
+                                />
+                            </div>
+                            <div className="assess_list"></div>
+                        </div>
                     </div>
                 </div>
             </div>

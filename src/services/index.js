@@ -18,5 +18,5 @@ export const addressesList = (user) => requestGet(`/v1/users/${user}/addresses`)
 // 崔亚俊 api
 export const carousel_list = () => requestGet(api.carousel_list)
 export const shop_list = options => requestGet(api.shop_list, options)
-export const shop_info = options => requestGet(`/shopping/restaurant/${options}`)
-export const shop_food = options => requestGet(`/shopping/getcategory/${options}`)
+export const shop_info = options => requestGet(api.shop_info(options))
+export const shop_food = options => requestGet(api.shop_food(options))

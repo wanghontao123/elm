@@ -1,6 +1,8 @@
 export default {
     carousel_list: '/v2/index_entry',
     shop_list: '/shopping/restaurants',
+    shop_info: options => `/shopping/restaurant/${options}`,
+    shop_food: options => `/shopping/getcategory/${options}`,
     login: '/v2/login', //登录
     signout: '/v2/signout', //退出
     captchas: '/v1/captchas', //验证码
