@@ -13,6 +13,7 @@ export const Home_search = loader(() => import('@/pages/home_search')) // 搜索
 export const Home_takeaway = loader(() => import('@/pages/home_takeaway')) // 外卖
 export const Detils_list = loader(() => import('@/pages/detils_list')) // 详情列表
 export const Detils_info = loader(() => import('@/pages/detils_info')) // 详情信息
+export const Detils_sort = loader(() => import('@/pages/detils_sort')) // 排序列表
 
 export const Home_my = loader(() => import('@/pages/home_my')) // 我的页面
 export const Home_Info = loader(() => import('@/pages/homeMyPages/home_info.jsx')) // 我的信息页面

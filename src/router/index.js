@@ -16,6 +16,7 @@ import {
     Home_takeaway,
     Detils_list,
     Detils_info,
+    Detils_sort,
     CitySearch,
     Home_Info, // 我的信息页面
     Home_Balance, // 我的余额 页面
@@ -58,6 +59,10 @@ const route = [
             {
                 path: '/info/detils_info',
                 component: Detils_info,
+            },
+            {
+                path: '/info/detils_sort',
+                component: Detils_sort,
             },
             {
                 // 我的信息页面

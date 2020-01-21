@@ -5,15 +5,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    .shop_info {
-        position: absolute;
-        z-index: 30;
-        top: 0;
-        left: 0%;
-        width: 0%;
-        height: 100%;
-        background: #fff;
-    }
+    
     .shop_list_header {
         width: 100%;
         position: absolute;
@@ -175,6 +167,9 @@
                         /* #3190e8 */
                         text-align: center;
                         padding: 0.2rem;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
                     }
                     .select_nav_title_active {
                         width: 100%;
@@ -184,6 +179,9 @@
                         background: #fff;
                         text-align: center;
                         padding: 0.2rem;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
                     }
                 }
                 .select_list {

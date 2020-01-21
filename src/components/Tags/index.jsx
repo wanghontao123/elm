@@ -16,7 +16,7 @@ export default class extends PureComponent {
     }
     render() {
         const { props: { className = '', list = [] }, toTags } = this
-        console.log(list)
+        // console.log(list)
         return (
             <div className={className} onClick={(e) => toTags(e, className)} >
                 {

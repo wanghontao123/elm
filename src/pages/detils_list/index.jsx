@@ -88,10 +88,21 @@ class extends Component {
     witchImg = ({ target }) => {
         target.src = 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2970038114,3134509011&fm=26&gp=0.jpg'
     }
-    // 
-    showInfo = () => {
-        console.log(1)
+    showDomView = (show, node) => {
+        let showDomView = document.querySelector(node)
+        showDomView.style = `display: ${show}`
     }
+    
+    toInfo = () => {
+        const { props: { match: { params: { id } } } } = this
+        this.props.history.push({
+            pathname: '/info/detils_info',
+            state: {
+                id,
+            }
+        })
+    }
+
 
     render() {
         /* 
@@ -102,7 +113,7 @@ class extends Component {
             witchImg 图片监听
             tabFood 索引导航
         */
-        const { props: { shpInfo, shpFood }, toBack, toTab, tabFood, witchImg, showInfo } = this
+        const { props: { shpInfo, shpFood }, toBack, toTab, tabFood, witchImg, toInfo } = this
         const { image_path, name, piecewise_agent_fee, promotion_info, activities = [], rating } = shpInfo
         const { category_list = [] } = shpFood
 
@@ -112,8 +123,7 @@ class extends Component {
         category_list.length > 0 && (() => {
             category_list[0].isActive = 'select_nav_title_active'
         })()
-        console.log(shpInfo)
-
+        // console.log(shpInfo)
         // 评论区
         const assess = [
             {
@@ -196,10 +206,6 @@ class extends Component {
         ]
         return (
             <div className="details_list">
-                {/* 商家 详情 */}
-                <div className="shop_info">
-                    
-                </div>
                 {/* 返回 上一级 */}
                 <div className="shop_list_header">
                     <span onClick={toBack}>返回</span>
@@ -231,7 +237,7 @@ class extends Component {
                                     </div>
                                 </div>
                                 <div className="shop_list_toinfo">
-                                    <Icon type="right" onClick={showInfo} />
+                                    <Icon type="right" onClick={toInfo} />
                                 </div>
                             </div>
                         </div>
