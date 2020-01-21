@@ -34,7 +34,7 @@ import {
     VipDescription,
     Goods_Address_Add, // 新增地址
     Goods_Address_Search, // 搜索地址
-    
+    HomeMyServerPages,
 } from './router' // 引入页面
 
 
@@ -111,7 +111,8 @@ const route = [
                 component: Home_Serves,
                 router: [
                     {
-
+                        path: '/info/home_serves/questionDetail',
+                        component: HomeMyServerPages
                     }
                 ]
             },

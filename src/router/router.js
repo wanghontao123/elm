@@ -34,4 +34,4 @@ export const InvoiceRecord = loader(() => import('@/pages/homeMemBer/invoiceReco
 export const Payment = loader(() => import('@/pages/homeMemBer/payment.jsx')) // 饿了么会员卡 在线支付
 export const UseCart = loader(() => import('@/pages/homeMemBer/useCart.jsx')) // 饿了么会员卡 兑换会员
 export const VipDescription = loader(() => import('@/pages/homeMemBer/vipDescription.jsx')) // 饿了么会员卡 购买记录
-export const VipMember = loader(() => import('@/pages/homeMyServerPages'))
+export const HomeMyServerPages = loader(() => import('@/pages/homeMyServerPages'))
