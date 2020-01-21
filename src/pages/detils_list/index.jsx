@@ -30,15 +30,14 @@ class extends Component {
         shopsInfo(id)
         shopsFood(id)
     }
-
+    // 返回上一级
     toBack = () => {
         this.props.history.go(-1)
     }
-
+    // 伪数组 转 数组
     toArray = nodes => {
         return Array.prototype.slice.call(nodes)
     }
-
     // 选项卡 切换
     toTab = ({ target, target: { nodeName } }) => {
         nodeName === 'SPAN' && (() => {
@@ -67,7 +66,7 @@ class extends Component {
             })
         })()
     }
-
+    // 商铺 商品 导航
     tabFood = ({ target }) => {
         let qid = ''
         target.className === 'select_nav_title' && (() => {
@@ -81,11 +80,17 @@ class extends Component {
         })()
         let will = document.querySelector(`.select_list #q${qid}`)
         if (will)
-            will.scrollIntoView()
+            will.scrollIntoView({
+                behavior: "smooth",
+            })
     }
-
+    // 图片 监听
     witchImg = ({ target }) => {
         target.src = 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2970038114,3134509011&fm=26&gp=0.jpg'
+    }
+    // 
+    showInfo = () => {
+        console.log(1)
     }
 
     render() {
@@ -97,7 +102,7 @@ class extends Component {
             witchImg 图片监听
             tabFood 索引导航
         */
-        const { props: { shpInfo, shpFood }, toBack, toTab, tabFood, witchImg } = this
+        const { props: { shpInfo, shpFood }, toBack, toTab, tabFood, witchImg, showInfo } = this
         const { image_path, name, piecewise_agent_fee, promotion_info, activities = [], rating } = shpInfo
         const { category_list = [] } = shpFood
 
@@ -191,6 +196,10 @@ class extends Component {
         ]
         return (
             <div className="details_list">
+                {/* 商家 详情 */}
+                <div className="shop_info">
+                    
+                </div>
                 {/* 返回 上一级 */}
                 <div className="shop_list_header">
                     <span onClick={toBack}>返回</span>
@@ -222,7 +231,7 @@ class extends Component {
                                     </div>
                                 </div>
                                 <div className="shop_list_toinfo">
-                                    <Icon type="right" />
+                                    <Icon type="right" onClick={showInfo} />
                                 </div>
                             </div>
                         </div>
@@ -388,7 +397,7 @@ class extends Component {
                             </div>
                             <div className="assess_tag">
                                 <Tags
-                                    list={assess} 
+                                    list={assess}
                                     className="tags_list"
                                 />
                             </div>
