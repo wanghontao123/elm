@@ -33,12 +33,8 @@ import {
     UseCart,
     VipDescription,
     Goods_Address_Add, // 新增地址
-<<<<<<< HEAD
-    
-=======
     Goods_Address_Search, // 搜索地址
 
->>>>>>> 26d386ecd0a76224f22282be215716b82ae88d38
 } from './router' // 引入页面
 
 
