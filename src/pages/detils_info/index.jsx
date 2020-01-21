@@ -23,6 +23,11 @@ class extends PureComponent {
     toBack = () => {
         this.props.history.go(-1)
     }
+    // 是否展示
+    showDomView = (show, node) => {
+        let showDomView = document.querySelector(node)
+        showDomView.style = `display: ${show}`
+    }
     showImage = (url) => {
         this.showDomView('flex', '.show_license')
     }
