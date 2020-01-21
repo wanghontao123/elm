@@ -7,6 +7,8 @@ class extends PureComponent {
 
     // 点击跳转 path
     jump = items => {
+        console.log(items);
+        
         this.props.history.push(items)        
     }
     render() {

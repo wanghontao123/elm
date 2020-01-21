@@ -4,6 +4,8 @@ import { Header_Top, } from '@@'
 import './home_serves.less'
 import { Icon } from 'antd'
 import List from '@@/List'
+import HomeMyServerPages from '@/pages/homeMyServerPages'
+
 export default 
 @connect(state => ({
     loginData: state.login.loginData,
@@ -110,9 +112,7 @@ class extends Component {
         const { list } = this.state
         return (
             <div className="home_serves">
-               <Header_Top 
-                    title="服务中心"
-               />
+               <Header_Top   title="服务中心" />
                <div className="section">
                    
                    <div className="sect-service">
@@ -140,6 +140,14 @@ class extends Component {
                         }
                    </div>
                </div>
+                {/* <Switch>
+                    {
+                        list.map((v, k) => (
+                            <Route path={v.path} component={HomeMyServerPages}/>
+                        ))
+                    }
+                    
+                </Switch> */}
             </div>
         );
     }
