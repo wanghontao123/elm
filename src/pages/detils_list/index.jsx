@@ -88,11 +88,7 @@ class extends Component {
     witchImg = ({ target }) => {
         target.src = 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2970038114,3134509011&fm=26&gp=0.jpg'
     }
-    showDomView = (show, node) => {
-        let showDomView = document.querySelector(node)
-        showDomView.style = `display: ${show}`
-    }
-    
+    // 跳转 商铺 详情页
     toInfo = () => {
         const { props: { match: { params: { id } } } } = this
         this.props.history.push({
@@ -102,7 +98,14 @@ class extends Component {
             }
         })
     }
-
+    // 商品 添加 or 商品 详情
+    clickShop = () => {
+        console.log('clickShop')
+    }
+    // 查看订单 or 去结账
+    buySubmit = () => {
+        console.log('buySubmit')
+    }
 
     render() {
         /* 
@@ -113,7 +116,7 @@ class extends Component {
             witchImg 图片监听
             tabFood 索引导航
         */
-        const { props: { shpInfo, shpFood }, toBack, toTab, tabFood, witchImg, toInfo } = this
+        const { props: { shpInfo, shpFood }, toBack, toTab, tabFood, witchImg, toInfo, clickShop, buySubmit } = this
         const { image_path, name, piecewise_agent_fee, promotion_info, activities = [], rating } = shpInfo
         const { category_list = [] } = shpFood
 
@@ -299,6 +302,7 @@ class extends Component {
                                                             <div
                                                                 key={index}
                                                                 className="select_list_section_good"
+                                                                onClick={clickShop}
                                                             >
                                                                 {/* {console.log(value)} */}
                                                                 <div className="section_good_img">
@@ -356,7 +360,7 @@ class extends Component {
                                 }
                             </div>
                         </div>
-                        <div className="products_buy">
+                        <div className="products_buy" onClick={buySubmit}>
                             <div className="buy_car">
                                 <span>
                                     <Icon type="shopping-cart" />
