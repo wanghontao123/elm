@@ -1,14 +1,20 @@
 import React, { PureComponent } from 'react'
-import _ from 'lodash'
+// redux
 import { connect } from 'react-redux'
 import { shoplist } from "@/actions/takeaway"
 import { CAROUSEL_LIST, SHOP_LIST, } from '@/constants/actionTypes'
+// 插件
+import LazyLoad from 'react-lazyload'
 import Swiper from 'react-id-swiper'
+// 组件
 import Header from '@@/Header'
-import 'swiper/css/swiper.css'
-import { hump } from '@/utils/string'
 import { Good_view } from '@@'
+// 公用方法
+import { hump } from '@/utils/string'
+import _ from 'lodash'
+// 样式表
 import './style.less'
+import 'swiper/css/swiper.css'
 
 export default @connect(state => {
     return {
@@ -80,7 +86,9 @@ class extends PureComponent {
                                         onClick={() => test(content.id)}
                                     >
                                         <div className="swiper-image">
-                                            <img src={`https://fuss10.elemecdn.com${content.image_url}`} alt="" />
+                                            <LazyLoad overflow>
+                                                <img src={`https://fuss10.elemecdn.com${content.image_url}`} alt="" />
+                                            </LazyLoad>
                                         </div>
                                         <div className="swiper-title">{content.title}</div>
                                     </div>

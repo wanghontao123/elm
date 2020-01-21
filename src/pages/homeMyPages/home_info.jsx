@@ -94,6 +94,7 @@ class extends Component {
                     <List
                         title='登录密码'
                         rightContent='修改'
+                        path='/info/setpassword'
                     />
 
                     <Popup

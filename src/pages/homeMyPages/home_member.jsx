@@ -16,6 +16,19 @@ class extends Component {
         this.props.userInfo({ user_id: id })
     }
 
+    vipSpeak = () => {
+        this.props.history.push('/info/vipDescription')
+    }
+    buy = () => {
+        this.props.history.push('/info/payment')
+    }
+    card = () => {
+        this.props.history.push('/info/useCart')
+    }
+    piao = () => {
+        this.props.history.push('/info/invoiceRecord')
+    }
+
     render() {
         const { username } = this.props.userInfos
         const data = [
@@ -41,7 +54,7 @@ class extends Component {
                 />
                 <p>为账户 <b>{username}</b> 购买会员</p>
                 <div className='vip-services'>
-                    <div className='vip-top'>
+                    <div className='vip-top' onClick={this.vipSpeak}>
                         <p>会员特权</p>
                         <p></p>
                         <p>会员说明 ></p>
@@ -67,16 +80,16 @@ class extends Component {
                         <p>1个月<span>￥20</span></p>
                         <p></p>
                         <p>
-                            <button>购买</button>
+                            <button onClick={this.buy}>购买</button>
                         </p>
                     </div>
                 </div>
-                <div className='vip-rule'>
+                <div className='vip-rule' onClick={this.card}>
                     <p>兑换会员</p>
                     <p></p>
                     <p>兑换卡号卡密 > </p>
                 </div>
-                <div className='vip-rule'>
+                <div className='vip-rule' onClick={this.piao}>
                     <p>购买记录</p>
                     <p></p>
                     <p>开发票 > </p>

@@ -16,6 +16,7 @@ import {
     Home_takeaway,
     Detils_list,
     Detils_info,
+    Detils_sort,
     CitySearch,
     Home_Info, // 我的信息页面
     Home_Balance, // 我的余额 页面
@@ -25,9 +26,19 @@ import {
     Home_Serves, // 服务中心
     Home_Download, // 下载饿了么APP
     SetUserName, // 修改用户名
+    SetPassWord, // 修改密码
     Goods_Address, // 编辑地址
+    InvoiceRecord,
+    Payment,
+    UseCart,
+    VipDescription,
     Goods_Address_Add, // 新增地址
+<<<<<<< HEAD
     
+=======
+    Goods_Address_Search, // 搜索地址
+
+>>>>>>> 26d386ecd0a76224f22282be215716b82ae88d38
 } from './router' // 引入页面
 
 
@@ -52,6 +63,10 @@ const route = [
             {
                 path: '/info/detils_info',
                 component: Detils_info,
+            },
+            {
+                path: '/info/detils_sort',
+                component: Detils_sort,
             },
             {
                 // 我的信息页面
@@ -79,6 +94,22 @@ const route = [
                 component: Home_Member,
             },
             {
+                path: '/info/invoiceRecord',
+                component: InvoiceRecord,
+            },
+            {
+                path: '/info/payment',
+                component: Payment,
+            },
+            {
+                path: '/info/useCart',
+                component: UseCart,
+            },
+            {
+                path: '/info/vipDescription',
+                component: VipDescription,
+            },
+            {
                 // 服务中心
                 path: '/info/home_serves',
                 component: Home_Serves,
@@ -99,6 +130,11 @@ const route = [
                 component: SetUserName,
             },
             {
+                // 修改用户名
+                path: '/info/setpassword',
+                component: SetPassWord,
+            },
+            {
                 // 编辑地址
                 path: '/info/goods_address',
                 component: Goods_Address,
@@ -107,6 +143,11 @@ const route = [
                 // 新增地址
                 path: '/info/goods_address_add',
                 component: Goods_Address_Add,
+            },
+            {
+                // 新增地址
+                path: '/info/goods_address_search',
+                component: Goods_Address_Search,
             },
             {
                 path: '/info',
