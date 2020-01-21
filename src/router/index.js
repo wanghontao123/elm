@@ -27,7 +27,7 @@ import {
     SetUserName, // 修改用户名
     Goods_Address, // 编辑地址
     Goods_Address_Add, // 新增地址
-
+    
 } from './router' // 引入页面
 
 
@@ -82,6 +82,11 @@ const route = [
                 // 服务中心
                 path: '/info/home_serves',
                 component: Home_Serves,
+                router: [
+                    {
+
+                    }
+                ]
             },
             {
                 // 下载饿了么APP
