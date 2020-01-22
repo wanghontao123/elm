@@ -135,7 +135,7 @@ class extends Component {
                        <p>热门问题</p>
                         {
                             list.map((v, k) => (
-                                <List  title={v.title} path={v.path}/>
+                                <List key={k} title={v.title} path={v.path}/>
                             ))
                         }
                    </div>

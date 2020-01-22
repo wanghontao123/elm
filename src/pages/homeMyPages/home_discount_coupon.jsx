@@ -149,7 +149,7 @@ class extends PureComponent {
                                             非客户端或客户端版本过低
                                         </p>
                                         <p>
-                                            <Buttons title='下载或升级客户端' color='#56d176' onClick={this.jump}/>
+                                            <Buttons title='下载或升级客户端' color='#56d176' onClick={this.jump} />
                                         </p>
 
                                     </div>

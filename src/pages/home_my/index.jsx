@@ -27,6 +27,16 @@ class extends Component {
         }
     }
 
+    // 点击 判断是否登录状态
+    jumoLogin = () => {
+        const { history } = this.props
+        if (localStorage.user_id) {
+            history.push('/info/home_discount_coupon') //我的优惠券
+        } else {
+            history.push('/login')
+        }
+    }
+
     render() {
         const { loginData: {
             username,  // 用户名
@@ -111,7 +121,7 @@ class extends Component {
                             <p><span>{balance ? balance.toFixed(2) : '0.00'}</span>元</p>
                             <p>我的余额</p>
                         </div>
-                        <div onClick={() => this.props.history.push('/info/home_discount_coupon')}>
+                        <div onClick={() => this.jumoLogin()}>
                             <p><span>{gift_amount ? gift_amount : 0}</span>个</p>
                             <p>我的优惠</p>
                         </div>
