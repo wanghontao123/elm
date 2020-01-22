@@ -2,7 +2,7 @@ import React, { Component, PureComponent } from 'react';
 // redux
 import { connect } from 'react-redux'
 import { shoplist } from "@/actions/takeaway"
-import { SHOP_INFO, SHOP_FOOD } from '@/constants/actionTypes'
+import { SHOP_INFO, SHOP_FOOD, ASSESS_TAGS } from '@/constants/actionTypes'
 // 插件
 import LazyLoad from 'react-lazyload'
 // 组件
@@ -18,17 +18,20 @@ import './style.less'
 export default @connect(state => {
     return {
         shpInfo: state.takeaway.shpInfo,
-        shpFood: state.takeaway.shpFood
+        shpFood: state.takeaway.shpFood,
+        assessTags: state.takeaway.assessTags,
     }
 }, {
     shopsInfo: shoplist[hump(SHOP_INFO)],
-    shopsFood: shoplist[hump(SHOP_FOOD)]
+    shopsFood: shoplist[hump(SHOP_FOOD)],
+    assessTag: shoplist[hump(ASSESS_TAGS)],
 })
 class extends Component {
     componentDidMount() {
-        const { props: { shopsInfo, shopsFood, match: { params: { id } } } } = this
+        const { props: { shopsInfo, shopsFood, assessTag, match: { params: { id } } } } = this
         shopsInfo(id)
         shopsFood(id)
+        assessTag(id)
     }
     // 返回上一级
     toBack = () => {
@@ -116,7 +119,7 @@ class extends Component {
             witchImg 图片监听
             tabFood 索引导航
         */
-        const { props: { shpInfo, shpFood }, toBack, toTab, tabFood, witchImg, toInfo, clickShop, buySubmit } = this
+        const { props: { shpInfo, shpFood, assessTags }, toBack, toTab, tabFood, witchImg, toInfo, clickShop, buySubmit } = this
         const { image_path, name, piecewise_agent_fee, promotion_info, activities = [], rating } = shpInfo
         const { category_list = [] } = shpFood
 
@@ -126,87 +129,20 @@ class extends Component {
         category_list.length > 0 && (() => {
             category_list[0].isActive = 'select_nav_title_active'
         })()
-        // console.log(shpInfo)
+        // console.log(assessTags)
         // 评论区
-        const assess = [
-            {
-                id: 1,
-                title: '全部',
-                num: 473,
-                isclick: 'true',
-                cname: 'tagchild_active'
-            },
-            {
-                id: 2,
-                title: '满意',
-                num: 453,
-                isclick: 'true',
+        const assessList = []
+        assessTags.map((res, key) => {
+            assessList[key] = {
+                id: res._id,
+                title: res.name,
+                num: res.count,
+                isclick: JSON.stringify(res.unsatisfied),
                 cname: 'tagchild'
-            },
-            {
-                id: 3,
-                title: '不满意',
-                num: 20,
-                isclick: 'false',
-                cname: 'tagchild'
-            },
-            {
-                id: 4,
-                title: '有图',
-                num: 2,
-                isclick: 'true',
-                cname: 'tagchild'
-            },
-            {
-                id: 5,
-                title: '味道好',
-                num: 47,
-                isclick: 'true',
-                cname: 'tagchild'
-            },
-            {
-                id: 6,
-                title: '送货快',
-                num: 32,
-                isclick: 'true',
-                cname: 'tagchild'
-            },
-            {
-                id: 7,
-                title: '分量足',
-                num: 18,
-                isclick: 'true',
-                cname: 'tagchild'
-            },
-            {
-                id: 8,
-                title: '包装精美',
-                num: 15,
-                isclick: 'true',
-                cname: 'tagchild'
-            },
-            {
-                id: 9,
-                title: '干净卫生',
-                num: 15,
-                isclick: 'true',
-                cname: 'tagchild'
-            },
-            {
-                id: 10,
-                title: '食材新鲜',
-                num: 15,
-                isclick: 'true',
-                cname: 'tagchild'
-            },
-            {
-                id: 11,
-                title: '服务不错',
-                num: 11,
-                isclick: 'true',
-                cname: 'tagchild'
-            },
-        ]
+            }
+        })
+        assessList[0].cname = 'tagchild_active'
+        
         return (
             <div className="details_list">
                 {/* 返回 上一级 */}
@@ -407,7 +343,7 @@ class extends Component {
                             </div>
                             <div className="assess_tag">
                                 <Tags
-                                    list={assess}
+                                    list={assessList}
                                     className="tags_list"
                                 />
                             </div>
@@ -419,5 +355,3 @@ class extends Component {
         );
     }
 }
-
-

@@ -24,7 +24,7 @@ export default class extends PureComponent {
                         <div {...res} 
                             key={key}
                             className={res.cname}
-                            style={{background: !JSON.parse(res.isclick) && "#F5F5F5", color: !JSON.parse(res.isclick) && "#AAA"}}
+                            style={{background: JSON.parse(res.isclick) && "#F5F5F5", color: JSON.parse(res.isclick) && "#AAA"}}
                         >
                             {res.title}({res.num})
                         </div>
