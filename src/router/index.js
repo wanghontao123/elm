@@ -16,6 +16,7 @@ import {
     Home_takeaway,
     Detils_list,
     Detils_info,
+    Detils_sort,
     CitySearch,
     Home_Info, // 我的信息页面
     Home_Balance, // 我的余额 页面
@@ -35,7 +36,7 @@ import {
     Goods_Address_Search, // 搜索地址
     Home_Discount_Coupon, // 优惠券
     Home_Hb_Past,  // 过期红包
-
+    HomeMyServerPages,
 } from './router' // 引入页面
 
 
@@ -60,6 +61,10 @@ const route = [
             {
                 path: '/info/detils_info',
                 component: Detils_info,
+            },
+            {
+                path: '/info/detils_sort',
+                component: Detils_sort,
             },
             {
                 // 我的信息页面
@@ -106,6 +111,12 @@ const route = [
                 // 服务中心
                 path: '/info/home_serves',
                 component: Home_Serves,
+                router: [
+                    {
+                        path: '/info/home_serves/questionDetail',
+                        component: HomeMyServerPages
+                    }
+                ]
             },
             {
                 // 下载饿了么APP

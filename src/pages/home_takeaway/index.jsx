@@ -43,12 +43,9 @@ class extends PureComponent {
     }
 
     // 跳 分类
-    toKind = id => {
-        console.log(id)
-    }
-    
-    test = id => {
-        console.log(id)
+    toSort = lis => {
+        const { props: { history: { push } } } = this
+        push('/info/detils_sort', lis)
     }
 
     jump = evt => {
@@ -59,7 +56,7 @@ class extends PureComponent {
 
     // swiper 导航
     SimpleSwiperWithParams = () => {
-        const { props: { carList }, test } = this
+        const { props: { carList }, toSort } = this
         let list = _.chunk(carList, 8)
         const params = {
             pagination: {
@@ -83,7 +80,10 @@ class extends PureComponent {
                                     <div
                                         className="swiper-content"
                                         key={index}
-                                        onClick={() => test(content.id)}
+                                        onClick={() => toSort({
+                                            id: content.id,
+                                            title: content.title
+                                        })}
                                     >
                                         <div className="swiper-image">
                                             <LazyLoad overflow>

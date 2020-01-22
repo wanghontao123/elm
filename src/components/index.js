@@ -14,6 +14,8 @@ import SearchHistory from '@@/SearchHistory'
 import CardStatus from '@@/CardStatus'
 import Popup from '@@/Popup'
 import Inputs from '@@/Inputs'
+import Tab_nav from '@@/Tab_nav'
+import Tags from '@@/Tags'
 
 export {
     Loading,
@@ -32,4 +34,6 @@ export {
     CardStatus,
     Popup,
     Inputs,
+    Tab_nav,
+    Tags
 }
