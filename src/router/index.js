@@ -33,6 +33,8 @@ import {
     VipDescription,
     Goods_Address_Add, // 新增地址
     Goods_Address_Search, // 搜索地址
+    Home_Discount_Coupon, // 优惠券
+    Home_Hb_Past,  // 过期红包
 
 } from './router' // 引入页面
 
@@ -134,6 +136,16 @@ const route = [
                 // 新增地址
                 path: '/info/goods_address_search',
                 component: Goods_Address_Search,
+            },
+            {
+                // 优惠券
+                path: '/info/home_discount_coupon',
+                component: Home_Discount_Coupon,
+            },
+            {
+                // 过期红包
+                path: '/info/home_hb_past',
+                component: Home_Hb_Past,
             },
             {
                 path: '/info',

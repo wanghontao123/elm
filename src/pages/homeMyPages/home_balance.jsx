@@ -26,7 +26,7 @@ class extends Component {
                         title='提现'
                     />
                 </div>
-                <duv className='home_balance_bot'>
+                <div className='home_balance_bot'>
                     <div>
                         交易明细
                     </div>
@@ -36,7 +36,7 @@ class extends Component {
                             暂无交易明细
                         </p>
                     </div>
-                </duv>
+                </div>
             </div>
         );
     }

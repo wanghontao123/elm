@@ -36,6 +36,7 @@ const myPersistReducer = combineReducers({
     seachCity: rdc.seachCity,
     homeSearch: rdc.homeSearch,
     userInfo: rdc.userInfo,
+    hongbaos: rdc.hongbaos,
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

@@ -18,3 +18,6 @@ export const CAPTCHAS_POST = 'CAPTCHAS_POST' // 验证码
 export const SEACH_CITY = 'SEACH_CITY' // 搜索城市
 export const HOME_SEARCH = 'HOME_SEARCH' // 搜索店铺
 export const SEARCH_CITY_GET = 'SEARCH_CITY_GET' // 搜索城市地址
+export const HOMGBAOS_USABLE = 'HOMGBAOS_USABLE' // 可用红包
+export const HOMGBAOS_PAST = 'HOMGBAOS_PAST' // 过期红包
+export const HOMGBAOS_EXCHANGE = 'HOMGBAOS_EXCHANGE' // 兑换红包

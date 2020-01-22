@@ -30,6 +30,8 @@ class extends Component {
     }
 
     onChange = items => {
+        console.log(items, 'items');
+        
         this.setState({
             [items.name]: items.value,
             [items.name + '_Status']: items.status,

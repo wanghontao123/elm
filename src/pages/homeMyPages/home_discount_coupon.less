@@ -1,0 +1,204 @@
+.home_discount_coupon {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .home_discount_coupon_content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    .home_discount_coupon_content_title {
+        width: 100%;
+        height: .7rem;
+        background: #fff;
+        display: flex;
+        padding: .1rem;
+        box-sizing: border-box;
+
+        div {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .25rem;
+            padding: .1rem;
+            margin: .1em .8rem;
+            border-bottom: 2px solid #fff;
+            box-sizing: border-box;
+        }
+
+        .divStyle {
+            border-bottom: 2px solid #3190e8;
+        }
+       
+    }
+
+    .home_discount_coupon_content_look {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+
+        .redPacket {
+            flex: 1;
+            display: flex;
+            .redPacket_top {
+                flex: 1;
+                overflow: auto;
+
+                .top_explain {
+                    width: 100%;
+                    height: auto;
+                    padding: .2rem;
+                    p:first-child {
+                        float: left;
+                        span {
+                            color: red;
+                        }
+                    }
+                    p:last-child {
+                        float: right;
+                        color: #3190e8;
+                        .iconfont {
+                            font-size: .25rem;
+                            margin-right: .05rem;
+                        }
+                    }
+                }
+                
+                .top_content {
+                    width: 100%;
+                    height: auto;
+                    padding: .2rem;
+                    padding-top: 0;
+                    box-sizing: border-box;
+                    
+                    .top_content_lists:not(:first-child) {
+                        margin-top: .2rem;
+                        box-sizing: border-box;
+                    }
+
+                    .top_content_lists {
+                        width: 100%;
+                        height: auto;
+                        background: #fff;
+                        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAIBAMAAAALs8LeAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAeUExURUxpcf9TQf9aS/9TQP9TQP9TQv9TQf9UQP9bSP9TQCdGiZQAAAAJdFJOUwBPEZzKPX2/HKJFz58AAAAkSURBVAjXY5gJBwzEMScHNXpCmQIMDMwQ5jQGIKgEMyeBmJIAtqcnWdDMwKsAAAAASUVORK5CYII=');
+                        background-repeat: repeat-x;
+                        background-size: .25rem;
+                        border-radius: .12rem;
+                        display: flex;
+                        padding: .3rem .2rem;
+                        box-sizing: border-box;
+                        div {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                        }
+                        div:first-child, div:last-child {
+                            width: auto;
+                        }
+                        div:nth-child(2) {
+                            flex: 1;
+                            padding: 0 .3rem;
+                            p:first-child {
+                                font-size: .27rem;
+                                color: #666;
+                            }
+                            p {
+                                font-size: .17rem;
+                                color: #999;
+                            }
+                        }
+                        div:first-child {
+                            border-right: 1px dashed #ccc;
+                            padding-right: .2rem;
+                            p:first-child {
+                                color: #ff5340;
+                                font-weight: bold;
+                                font-family: '宋体';
+                                font-size: .26rem;
+                                span {
+                                    font-size: .6rem;
+                                }
+                            }
+                            p:last-child {
+                                color: #999;
+                                font-size: .2rem;
+                            }
+                        }
+                        
+                        div:last-child {
+                            color: #ff5340;
+                            font-size: .3rem;
+                        }
+                    }
+                    
+                    .bgHistory {
+                        text-align: center;
+                        margin-top: .2rem;
+                        line-height: .4rem;
+                        span {
+                            font-size: .2rem;
+                            color: #666;
+                        }
+                    }
+                }
+
+
+
+            }
+            .redPacket_bot {
+                width: 100%;
+                height: .9rem;
+                background: #fff;
+                position: fixed;
+                bottom: 0;
+                display: flex;
+                div {
+                    flex: 1;
+                    font-size: .26rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+
+        /* 商家代金券 */
+        .redPacket_shop {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: .2rem;
+            box-sizing: border-box;
+            div:first-child {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                color: #3190e8;
+            }
+            div:last-child {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                img {
+                    width: 3rem;
+                    height: 1.7rem;
+                    margin-top: 2rem;
+                }
+                p:nth-child(2) {
+                    color: #999;
+                    font-size: .2rem;
+                    padding: .2rem 0;
+                }
+
+                button {
+                    padding: .1rem .2rem;
+                }
+            }
+        }
+    }
+    
+}

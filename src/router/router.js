@@ -28,6 +28,8 @@ export const SetPassWord = loader(() => import('@/pages/homeMyPages/setPassWord.
 export const Goods_Address = loader(() => import('@/pages/homeMyPages/goods_address.jsx')) // 编辑地址
 export const Goods_Address_Add = loader(() => import('@/pages/homeMyPages/goods_address_add.jsx')) // 新增地址
 export const Goods_Address_Search = loader(() => import('@/pages/homeMyPages/goods_address_search.jsx')) // 搜索地址
+export const Home_Discount_Coupon = loader(() => import('@/pages/homeMyPages/home_discount_coupon.jsx')) // 我的优惠券
+export const Home_Hb_Past = loader(() => import('@/pages/homeMyPages/home_hb_past.jsx')) // 过期红包
 
 export const InvoiceRecord = loader(() => import('@/pages/homeMemBer/invoiceRecord.jsx')) // 饿了么会员卡 我的优惠
 export const Payment = loader(() => import('@/pages/homeMemBer/payment.jsx')) // 饿了么会员卡 在线支付

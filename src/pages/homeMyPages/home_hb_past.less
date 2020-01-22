@@ -1,0 +1,91 @@
+.home_hb_past {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+   .home_hb_past_content::-webkit-scrollbar{ width: 0;}
+   .home_hb_past_content {
+       flex: 1;
+       overflow: auto;
+       padding: .2rem;
+       box-sizing: border-box;
+       .home_hb_past_content_lists:not(:first-child) {
+           margin-top: .2rem;
+       }
+       .home_hb_past_content_lists {
+            border: 1px solid #ccc;
+            display: flex;
+            flex-direction: column;
+            border-radius: .12rem;
+            padding: .3rem .2rem;
+            background-image: url(../../assets/images/past.jpg);
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            background-position: right;
+            box-sizing: border-box;
+            position: relative;
+            .home_hb_past_content_lists_rep {
+                width: 100%;
+                height: .15rem;
+                background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAAAXNSR0IArs4c6QAAAHtJREFUKBVjvHv37n8GKgImKpoFNmoYGcjIyAgK6+VA2o6FhUWInZ1dlomJKQDIP40cbIzERApQ01+g5jAFBYV1yJpB7P///zPev39/IpDOBfGJDcNGbIaBDAC5XFFRsQBIHwDxCRoIVPidmZl5CkgxLgBU8w/owl6QPABvmyDiDQUF7gAAAABJRU5ErkJggg');
+                background-repeat: repeat-x;
+                background-size: .25rem;
+                position: absolute;
+                top: 0;
+                left: 0;
+                border-radius: .12rem .12rem 0 0;
+                z-index: 10;
+            }
+           .home_hb_past_content_lists_top {
+               flex: 1;
+               display: flex;
+               div {
+                   display: flex;
+                   flex-direction: column;
+                   justify-content: center;
+                   align-items: ;
+               }
+
+               div:first-child {
+                    border-right: 1px dashed #ccc;
+                    padding-right: .2rem;
+                    p:first-child {
+                        color: #ccc;
+                        font-weight: bold;
+                        font-family: Helvetica Neue,Tahoma,Arial;
+                        font-size: .26rem;
+                        span {
+                            font-size: .6rem;
+                        }
+                    }
+                    p:last-child {
+                        color: #999;
+                        font-size: .2rem;
+                    }
+               }
+
+               div:nth-child(2) {
+                    flex: 1;
+                    padding: 0 .3rem;
+                    p:first-child {
+                        font-size: .27rem;
+                        color: #666;
+                    }
+                    p {
+                        font-size: .17rem;
+                        color: #999;
+                    }
+                }
+
+           }
+           .home_hb_past_content_lists_bot {
+               p {
+                   padding-top: .2rem;
+                   font-size: .2rem
+               }
+           }
+       }
+   }
+    
+}

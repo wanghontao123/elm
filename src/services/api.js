@@ -8,4 +8,8 @@ export default {
     homeSearch: 'v4/restaurants',
     search: 'v1/pois',  // 搜索地址
     userInfo: 'v1/user', // 用户信息
+    hongbaos: opt => `/promotion/v2/users/${opt}/hongbaos`, // 可用红包
+    pasthongbaos: opt => `/promotion/v2/users/${opt}/expired_hongbaos`, // 过期红包
+    exchangehongbaos: opt => `/v1/users/${opt}/hongbao/exchange`, // 兑换红包
+
 }

@@ -27,7 +27,7 @@ class extends Component {
                         color='#fe6d47'
                     />
                 </div>
-                <duv className='home_balance_bot'>
+                <div className='home_balance_bot'>
                     <div>
                         最近30天积分记录
                     </div>
@@ -37,7 +37,7 @@ class extends Component {
                             快去下单赚取大量积分吧
                         </p>
                     </div>
-                </duv>
+                </div>
             </div>
         );
     }

@@ -8,6 +8,7 @@ import search from './search'
 import seachCity from './seachCity'
 import homeSearch from './homeSearch'
 import userInfo from './userInfo'
+import hongbaos from './hongbaos'
 
 export {
     global,
@@ -20,4 +21,5 @@ export {
     seachCity,
     homeSearch,
     userInfo,
+    hongbaos,
 }

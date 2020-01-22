@@ -35,7 +35,6 @@ class extends Component {
             gift_amount, // 我的优惠券
             point, // 我的积分
         } } = this.props
-        console.log(this.props.loginData, '登录的信息');
 
         const listData = [
             {
@@ -112,7 +111,7 @@ class extends Component {
                             <p><span>{balance ? balance.toFixed(2) : '0.00'}</span>元</p>
                             <p>我的余额</p>
                         </div>
-                        <div>
+                        <div onClick={() => this.props.history.push('/info/home_discount_coupon')}>
                             <p><span>{gift_amount ? gift_amount : 0}</span>个</p>
                             <p>我的优惠</p>
                         </div>
