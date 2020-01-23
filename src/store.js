@@ -25,10 +25,7 @@ const myPersistReducer = combineReducers({
     cityGuess: rdc.cityGuess,
     cityHot: rdc.cityHot,
     cityGroup:rdc.cityGroup,
-    takeaway: persistReducer(
-        rootPersistConfig,
-        rdc.takeaway
-    ),
+    takeaway: rdc.takeaway,
     search: persistReducer(
         rootPersistConfig,
         rdc.search

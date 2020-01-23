@@ -20,12 +20,10 @@ export default @connect(state => {
     return {
         carList: state.takeaway.carList,
         shpList: state.takeaway.shpList,
-
     }
 }, {
     carouselList: shoplist[hump(CAROUSEL_LIST)],
     shopsList: shoplist[hump(SHOP_LIST)],
-
 })
 class extends PureComponent {
     componentDidMount() {
@@ -104,7 +102,24 @@ class extends PureComponent {
     render() {
         const { props: { shpList }, toInfo, SimpleSwiperWithParams } = this
         const sera = JSON.parse(localStorage.getItem('placehHistory'))
-        const rule = sera ? _.get(sera[sera.length - 1],'address','') : ''
+        const rule = sera ? _.get(sera[sera.length - 1], 'address', '') : ''
+        /* const goodlist = []
+        shpList.length > 0 && shpList.map((res, key) => {
+            // console.log(res)
+            goodlist[key] = {
+                id: res.id,
+                name: res.name,
+                image_path: res.image_path,
+                supports: res.supports,
+                rating: res.rating,
+                recent_order_num: res.recent_order_num,
+                float_minimum_order_amount: res.float_minimum_order_amount,
+                float_delivery_fee: res.float_delivery_fee,
+                distance: res.distance,
+                order_lead_time: res.order_lead_time,
+                delivery_mode: res.delivery_mode,
+            }
+        }) */
         return (
             <div className="home_takeaway">
                 {/* 头部 */}
@@ -127,7 +142,7 @@ class extends PureComponent {
                             附近商家
                         </div>
                         {
-                            shpList.length > 0 && shpList.map((res, key) => (
+                            shpList.map((res, key) => (
                                 <Good_view {...res}
                                     key={key}
                                     toInfo={toInfo}

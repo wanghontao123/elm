@@ -11,9 +11,10 @@ export const SEARCH_HISOTY = 'SEARCH_HISOTY'  //home下的搜索记录
 export const SHOP_LIST = 'SHOP_LIST' // 商铺列表
 export const SHOP_INFO = 'SHOP_INFO' // 商铺详情
 export const SHOP_FOOD = 'SHOP_FOOD' // 商铺详情
-export const SHOP_SORT = 'SHOP_FOOD' // 商铺分类
-export const ASSESS_TAGS = 'ASSESS_TAGS'
-export const ASSESS_SCORES = 'ASSESS_SCORES'
+export const SHOP_SORT = 'SHOP_SORT' // 商铺分类
+export const ASSESS_TAGS = 'ASSESS_TAGS' // 评论标签
+export const ASSESS_SCORES = 'ASSESS_SCORES' // 还没用
+export const FOOD_SORT = 'FOOD_SORT' // 商品排序
 
 // 
 export const LOGIN_POST = 'LOGIN_POST' // 登录
