@@ -7,7 +7,9 @@ import {
     SHOP_SORT, 
     ASSESS_TAGS, 
     ASSESS_SCORES, 
-    FOOD_SORT 
+    FOOD_SORT,
+    ADD_SHOP,
+    DEL_SHOP,
 } from '@/constants/actionTypes';
 import _ from 'lodash'
 
@@ -20,6 +22,7 @@ const shopState = {
     assessTags: [],
     assessScores: {},
     fodSort: [],
+    numShop: 0,
 }
 
 export default handleActions({
@@ -31,4 +34,9 @@ export default handleActions({
     [ASSESS_TAGS]: (state, action) => ({ ...state, assessTags: _.get(action, 'payload', []) }),
     [ASSESS_SCORES]: (state, action) => ({ ...state, assessScores: _.get(action, 'payload', {}) }),
     [FOOD_SORT]: (state, action) => ({ ...state, fodSort: _.get(action, 'payload', []) }),
+    [ADD_SHOP]: (state, action) => {
+        console.log(action)
+        return { ...state, numShop: action.payload ++ }
+    },
+    [DEL_SHOP]: (state, action) => ({ ...state, numShop: state.numShop -- }),
 }, shopState)

@@ -18,6 +18,8 @@ import {
     ASSESS_TAGS, 
     ASSESS_SCORES,
     FOOD_SORT,
+    ADD_SHOP,
+    DEL_SHOP,
 } from "@/constants/actionTypes";
 
 export const shoplist = createActions({
@@ -29,4 +31,9 @@ export const shoplist = createActions({
     [ASSESS_TAGS]: options => assess_tags(options),
     [ASSESS_SCORES]: options => assess_scores(options),
     [FOOD_SORT]: options => food_sort(options),
+    [ADD_SHOP]: options => {
+        console.log(options)
+        return options
+    },
+    [DEL_SHOP]: options => options,
 })

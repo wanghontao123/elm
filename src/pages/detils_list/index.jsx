@@ -2,11 +2,11 @@ import React, { Component, PureComponent } from 'react';
 // redux
 import { connect } from 'react-redux'
 import { shoplist } from "@/actions/takeaway"
-import { SHOP_INFO, SHOP_FOOD, ASSESS_TAGS } from '@/constants/actionTypes'
+import { SHOP_INFO, SHOP_FOOD, ASSESS_TAGS, ADD_SHOP, DEL_SHOP } from '@/constants/actionTypes'
 // 插件
 import LazyLoad from 'react-lazyload'
 // 组件
-import { Icon, Rate } from 'antd'
+import { Icon, Rate, Badge } from 'antd'
 import { Tags } from '@@'
 // 公共方法
 import { hump } from '@/utils/string'
@@ -20,11 +20,14 @@ export default @connect(state => {
         shpInfo: state.takeaway.shpInfo,
         shpFood: state.takeaway.shpFood,
         assessTags: state.takeaway.assessTags,
+        numShop: state.takeaway.numShop
     }
 }, {
     shopsInfo: shoplist[hump(SHOP_INFO)],
     shopsFood: shoplist[hump(SHOP_FOOD)],
     assessTag: shoplist[hump(ASSESS_TAGS)],
+    addShop: shoplist[hump(ADD_SHOP)],
+    delShop: shoplist[hump(DEL_SHOP)],
 })
 class extends Component {
     componentDidMount() {
@@ -101,9 +104,34 @@ class extends Component {
             }
         })
     }
+
+    // 添加 or 删除
+    addordel = ({ target, action }) => {
+        let { addShop, numShop, delShop } = this.props
+        addShop(numShop)
+        console.log(numShop)
+        let delNode = this.toArray(target.parentNode.children)[0]
+        let nomNode = this.toArray(target.parentNode.children)[1]
+        if (action === '+') {
+            nomNode.innerHTML++
+            if (nomNode.innerHTML >= 1) {
+                delNode.style = 'display: flex'
+                nomNode.style = 'display: flex'
+            }
+        }
+        if (action === '-') {
+            nomNode.innerHTML--
+            if (nomNode.innerHTML < 1) {
+                delNode.style = 'display: none'
+                nomNode.style = 'display: none'
+            }
+        }
+    }
+
     // 商品 添加 or 商品 详情
-    clickShop = () => {
-        console.log('clickShop')
+    clickShop = ({ target }) => {
+        target.className.includes('addShop') && this.addordel({ target, action: '+' })
+        target.className.includes('delShop') && this.addordel({ target, action: '-' })
     }
     // 查看订单 or 去结账
     buySubmit = () => {
@@ -122,10 +150,13 @@ class extends Component {
         const { props: { shpInfo, shpFood, assessTags }, toBack, toTab, tabFood, witchImg, toInfo, clickShop, buySubmit } = this
         const { image_path, name, piecewise_agent_fee, promotion_info, activities = [], rating } = shpInfo
         const { category_list = [] } = shpFood
-        category_list.map(res => {
+        category_list.map((res, key) => {
             res.isActive = 'select_nav_title'
+            if (res.foods.length !== 0) {
+                category_list[key]['nav_counts'] = 0
+            }
         })
-        if(category_list.length > 0) {
+        if (category_list.length > 0) {
             category_list[0].isActive = 'select_nav_title_active'
         }
         // console.log(assessTags)
@@ -140,7 +171,7 @@ class extends Component {
                 cname: 'tagchild'
             }
         })
-        if(assessList.length > 0) {
+        if (assessList.length > 0) {
             assessList[0].cname = 'tagchild_active'
         }
         return (
@@ -213,7 +244,13 @@ class extends Component {
                                                 className={res.isActive}
                                                 key={key}
                                             >
-                                                {res.name}</div>
+                                                {res.name}
+                                                <span className="nav_sub_count">
+                                                    <Badge
+                                                        count={res.nav_counts}
+                                                    />
+                                                </span>
+                                            </div>
                                         })()
                                     })
                                 }
@@ -275,15 +312,15 @@ class extends Component {
                                                                                 <span> <b>￥{value.specfoods[0].price}</b> 起</span> :
                                                                                 <span><b>￥{value.specfoods[0].price}</b></span>
                                                                         }
-                                                                        {
-                                                                            value.specifications.length > 0 ?
-                                                                                <span>
-                                                                                    <b style={{ borderRadius: '0.1rem' }}>选规格</b>
-                                                                                </span> :
-                                                                                <span>
-                                                                                    <b style={{ borderRadius: '50%' }}><Icon type='plus' /></b>
-                                                                                </span>
-                                                                        }
+                                                                        <span>
+                                                                            <b className="delShop">-</b>
+                                                                            <b className="numShop">0</b>
+                                                                            {
+                                                                                value.specifications.length > 0 ?
+                                                                                    <b className="addShop add-long">选规格</b> :
+                                                                                    <b className="addShop add-round">+</b>
+                                                                            }
+                                                                        </span>
                                                                     </p>
                                                                 </div>
                                                             </div>
