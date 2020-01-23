@@ -15,6 +15,8 @@ export const SHOP_SORT = 'SHOP_SORT' // 商铺分类
 export const ASSESS_TAGS = 'ASSESS_TAGS' // 评论标签
 export const ASSESS_SCORES = 'ASSESS_SCORES' // 还没用
 export const FOOD_SORT = 'FOOD_SORT' // 商品排序
+export const ADD_SHOP = 'ADD_SHOP' // 添加 商品
+export const DEL_SHOP = 'DEL_SHOP' // 删除 商品
 
 // 
 export const LOGIN_POST = 'LOGIN_POST' // 登录

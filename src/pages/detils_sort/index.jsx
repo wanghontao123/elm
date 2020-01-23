@@ -24,7 +24,7 @@ export default @connect(state => {
 class extends PureComponent {
     componentDidMount() {
         const { shopsSort, foodsSort } = this.props
-        console.log(this.props.location.state.id)
+        // console.log(this.props.location.state.id)
         shopsSort()
         foodsSort({
             latitude: 39.93526,
@@ -67,7 +67,7 @@ class extends PureComponent {
                 delivery_mode: res.delivery_mode || { color: "57A9FF", id: 1, is_solid: true, text: "蜂鸟专送" },
             }
         })
-        console.log(goodlist)
+        // console.log(goodlist)
         return (
             <div className="details_sort">
                 <div className="sort_header">

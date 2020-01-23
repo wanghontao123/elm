@@ -103,7 +103,7 @@ class extends PureComponent {
         const { props: { shpList }, toInfo, SimpleSwiperWithParams } = this
         const sera = JSON.parse(localStorage.getItem('placehHistory'))
         const rule = sera ? _.get(sera[sera.length - 1], 'address', '') : ''
-        /* const goodlist = []
+        const goodlist = []
         shpList.length > 0 && shpList.map((res, key) => {
             // console.log(res)
             goodlist[key] = {
@@ -119,7 +119,7 @@ class extends PureComponent {
                 order_lead_time: res.order_lead_time,
                 delivery_mode: res.delivery_mode,
             }
-        }) */
+        })
         return (
             <div className="home_takeaway">
                 {/* 头部 */}
@@ -142,7 +142,7 @@ class extends PureComponent {
                             附近商家
                         </div>
                         {
-                            shpList.map((res, key) => (
+                            goodlist.map((res, key) => (
                                 <Good_view {...res}
                                     key={key}
                                     toInfo={toInfo}
