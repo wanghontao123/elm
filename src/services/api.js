@@ -1,16 +1,16 @@
 export default {
     carousel_list: '/v2/index_entry',
     shop_list: '/shopping/restaurants',
-    shop_sort: '/shopping/v2/restaurant/category',
     shop_info: options => `/shopping/restaurant/${options}`,
     shop_food: options => `/shopping/getcategory/${options}`,
+    shop_sort: '/shopping/v2/restaurant/category',
 
     assess_tags: options => `ugc/v2/restaurants/${options}/ratings/tags`,
     assess_scores: options => `ugc/v2/restaurants/${options}/ratings/scores`,
 
     attr_bute: '/shopping/v1/restaurants/activity_attributes',
     // assess_info: options => `ugc/v2/restaurants/${options}/ratings`,
-    food_list: '/shopping/v2/menu',
+    food_sort: '/shopping/restaurants',
 
 
     login: '/v2/login', //登录

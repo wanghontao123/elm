@@ -122,13 +122,12 @@ class extends Component {
         const { props: { shpInfo, shpFood, assessTags }, toBack, toTab, tabFood, witchImg, toInfo, clickShop, buySubmit } = this
         const { image_path, name, piecewise_agent_fee, promotion_info, activities = [], rating } = shpInfo
         const { category_list = [] } = shpFood
-
         category_list.map(res => {
             res.isActive = 'select_nav_title'
         })
-        category_list.length > 0 && (() => {
+        if(category_list.length > 0) {
             category_list[0].isActive = 'select_nav_title_active'
-        })()
+        }
         // console.log(assessTags)
         // 评论区
         const assessList = []
@@ -141,8 +140,9 @@ class extends Component {
                 cname: 'tagchild'
             }
         })
-        assessList[0].cname = 'tagchild_active'
-        
+        if(assessList.length > 0) {
+            assessList[0].cname = 'tagchild_active'
+        }
         return (
             <div className="details_list">
                 {/* 返回 上一级 */}
@@ -304,7 +304,7 @@ class extends Component {
                             </div>
                             <div className="buy_bill">
                                 <div className="buy_view_price">
-                                    <div>￥20.00</div>
+                                    <div>￥0.00</div>
                                     <div>配送费￥5</div>
                                 </div>
                                 {/* 4CD964 */}
