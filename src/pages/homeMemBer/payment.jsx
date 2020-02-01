@@ -3,31 +3,43 @@ import { notification } from 'antd'
 import { Header } from '@@'
 import './payment.less'
 
+const openNotificationWithIcon = (type, opt) => {
+    notification[type]({
+        message: opt,
+    })
+}
+let timer = ''
 export default class extends PureComponent {
     //倒计时
     componentDidMount() {
+        let time = 900
         const fn = () => {
-            const time = new Date().getTime()
-            const timer = new Date('2020/1/21 21:00:00').getTime()
-            const fast = timer - time
-            const second = Math.floor((fast / 1000 % 60))
+            time = time - 1
             let s = document.querySelector('.second')
-            s.innerHTML = zero(second)
-            const minute = Math.floor((fast / 1000 / 60 % 60))
             let m = document.querySelector('.minute')
-            m.innerHTML = zero(minute)
+            let second = parseInt((time / 60))
+            let minute = parseInt((time % 60))
+            s.innerHTML = zero(minute)
+            m.innerHTML = zero(second)
+            if (time < 0) {
+                clearInterval(timer)
+                openNotificationWithIcon('warning', '支付超时')
+            }
         }
         const zero = x => {
             if (x > 10) {
                 return x
+            } else if (x < 0) {
+                return '00'
             } else {
                 return `0${x}`
             }
         }
-        setInterval(fn, 1000)
+        timer = setInterval(fn, 1000)
     }
     //回到上一级
     back = () => {
+        clearInterval(timer)
         this.props.history.go('-1')
     }
     render() {
@@ -47,11 +59,6 @@ export default class extends PureComponent {
                 checked: false
             }
         ]
-        const openNotificationWithIcon = type => {
-            notification[type]({
-                message: '当前环境无法支付，请打开官方APP进行付款',
-            })
-        }
         return (
             <div className='payment'>
                 <Header
@@ -63,7 +70,7 @@ export default class extends PureComponent {
                 <div className='payment-top'>
                     <p>支付剩余时间</p>
                     <p>
-                        <span>00</span> : <span className='minute'>00</span> : <span className='second'>00</span>
+                        <span>00</span> : <span className='minute'>15</span> : <span className='second'>00</span>
                     </p>
                 </div>
                 <p>选择支付方式</p>
@@ -82,7 +89,9 @@ export default class extends PureComponent {
                         ))
                     }
                 </div>
-                <button onClick={() => openNotificationWithIcon('warning')}>确认支付</button>
+                <button onClick={() => openNotificationWithIcon('warning', '当前环境无法支付，请打开官方APP进行付款')}>
+                    确认支付
+                </button>
             </div>
         )
     }
