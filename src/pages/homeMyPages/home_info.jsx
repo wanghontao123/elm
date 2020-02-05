@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { requestPost } from '@/utils/request'
 import { connect } from 'react-redux'
 import { message } from 'antd'
 import { Header_Top, List, Buttons, Popup } from '@@'
@@ -18,7 +19,7 @@ class extends Component {
         const user_id = localStorage.getItem('user_id')
         this.props.userInfo({ user_id })
     }
-    
+
     state = {
         status: false
     }
@@ -47,6 +48,60 @@ class extends Component {
             })
     }
 
+    // 上传头像
+    // onFile = () => {
+    //     const filex = document.createElement('input')
+    //     filex.type = 'file'
+    //     filex.click()
+
+    //     const avatar = document.querySelector('#file')
+    //     console.log(avatar);
+
+    //     // const formData = new FormData();
+    //     // formData.append("avatar", avatar.files[0]);
+    //     // const xhr = new XMLHttpRequest();
+    //     // console.log(xhr);
+
+    // }
+
+    previewFile = (file) => {
+        let reader
+        if (file) {
+            // 创建流对象
+            reader = new FileReader()
+            reader.readAsDataURL(file)
+        }
+        // 捕获 转换完毕
+        reader.onload = function (e) {
+            // 转换后的base64就在e.target.result里面,直接放到img标签的src属性即可
+            document.querySelector('img').src = e.target.result
+        }
+    }
+    onFile = (e) => {
+        const file = document.createElement('input')
+        file.type = 'file'
+        file.click()
+        file.addEventListener('change', (e) => {
+            let files = e.target.files
+            this.previewFile(files[0])
+            // 上传文件 创建FormData
+            let formData = new FormData()
+            // upFile就是后台接收的key
+            formData.append('upFile', files[0], files[0].name)
+            // 将formdata发送到后台即可
+            // 我用的 axios.post('url', formData)
+            // console.log(formData, 'formData')
+            // requestPost('/v1/addimg', {
+            //     type: formData,
+            // })
+            //     .then(res => {
+            //         console.log(res)
+            //     }) 
+        })
+    }
+
+
+
 
     render() {
         const { loginData: {
@@ -60,7 +115,7 @@ class extends Component {
                 />
 
                 <div className='home_info_list'>
-                    <div type='file'>
+                    <div type='file' onClick={this.onFile} id='file'>
                         <List
                             title='头像'
                             rightContent='//elm.cangdu.org/img/default.jpg'
