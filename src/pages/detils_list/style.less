@@ -170,6 +170,13 @@
                         white-space: nowrap;
                         text-overflow: ellipsis;
                         overflow: hidden;
+                        position: relative;
+                        .nav_sub_count {
+                            transform: scale(0.8);
+                            position: absolute;
+                            top: -0.15rem;
+                            right: 0.05rem;
+                        }
                     }
                     .select_nav_title_active {
                         width: 100%;
@@ -182,6 +189,13 @@
                         white-space: nowrap;
                         text-overflow: ellipsis;
                         overflow: hidden;
+                        position: relative;
+                        .nav_sub_count {
+                            transform: scale(0.8);
+                            position: absolute;
+                            top: -0.15rem;
+                            right: 0.05rem;
+                        }
                     }
                 }
                 .select_list {
@@ -289,6 +303,7 @@
                                         &:nth-child(5) {
                                             width: 100%;
                                             display: flex;
+                                            align-items: center;
                                             span {
                                                 &:nth-child(1) {
                                                     color: #ccc;
@@ -302,13 +317,39 @@
                                                 }
                                                 &:nth-child(2) {
                                                     flex: 1;
+                                                    height: 0.3rem;
                                                     display: flex;
                                                     justify-content: flex-end;
                                                     b {
-                                                        padding: 0 0.05rem;
+                                                        padding: 0 0.1rem;
                                                         box-sizing: border-box;
-                                                        background: #3190e8;
-                                                        color: white;
+                                                        font-size: 0.1rem;
+                                                        display: flex;
+                                                        align-items: center;
+                                                        justify-content: center;
+                                                        &:nth-child(1) {
+                                                            width: 0.3rem;
+                                                            border: 1px solid #3190e8;
+                                                            border-radius: 50%;
+                                                            color: #3190e8;
+                                                            display: none;
+                                                        }
+                                                        &:nth-child(2) {
+                                                            width: 0.3rem;
+                                                            display: none;
+                                                        }
+                                                        &:nth-child(3) {
+                                                            background: #3190e8;
+                                                            color: white; 
+                                                        }
+                                                    }
+                                                    .add-round {
+                                                        background: #000;
+                                                        width: 0.3rem;
+                                                        border-radius: 50%;
+                                                    }
+                                                    .add-long {
+                                                        border-radius: 0.1rem;
                                                     }
                                                 }
                                             }
