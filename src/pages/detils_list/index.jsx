@@ -360,17 +360,9 @@ class extends Component {
                                 <hgroup>
                                     <div>
                                         <span>服务态度</span>
-                                        <span>
-                                            <Rate className="star-size" allowHalf defaultValue={4.5} />
-                                            <b>4.7</b>
-                                        </span>
                                     </div>
                                     <div>
                                         <span>菜品评价</span>
-                                        <span>
-                                            <Rate className="star-size" allowHalf defaultValue={4.5} />
-                                            <b>4.8</b>
-                                        </span>
                                     </div>
                                     <div>
                                         <span>送达时间</span>
